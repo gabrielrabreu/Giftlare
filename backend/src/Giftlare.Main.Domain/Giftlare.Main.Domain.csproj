@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Giftlare.Security.Application\Giftlare.Security.Application.csproj" />
-  </ItemGroup>
-
 </Project>
