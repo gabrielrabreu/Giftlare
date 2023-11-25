@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftlare.Security.Contracts
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftlare.Security.Application", "src\Giftlare.Security.Application\Giftlare.Security.Application.csproj", "{190773EB-9121-4C92-903D-867B904498A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftlare.Enums", "src\Giftlare.Enums\Giftlare.Enums.csproj", "{121AC72C-84C5-4BA6-BF7D-FB4A4BB0BAB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{190773EB-9121-4C92-903D-867B904498A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{190773EB-9121-4C92-903D-867B904498A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{190773EB-9121-4C92-903D-867B904498A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{121AC72C-84C5-4BA6-BF7D-FB4A4BB0BAB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{121AC72C-84C5-4BA6-BF7D-FB4A4BB0BAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{121AC72C-84C5-4BA6-BF7D-FB4A4BB0BAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{121AC72C-84C5-4BA6-BF7D-FB4A4BB0BAB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,6 +117,7 @@ Global
 		{A1E8EB99-7425-456B-AB9C-AFD09C2C6AB2} = {486FF5E9-64DC-41E4-B3E7-3DA43C56F103}
 		{D1BC1A8F-D35E-4B3E-A1B8-0A3967154539} = {486FF5E9-64DC-41E4-B3E7-3DA43C56F103}
 		{190773EB-9121-4C92-903D-867B904498A6} = {486FF5E9-64DC-41E4-B3E7-3DA43C56F103}
+		{121AC72C-84C5-4BA6-BF7D-FB4A4BB0BAB1} = {33D3430F-26C1-478D-B5E0-3C410A02FFE8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C0C676-96BC-457A-9186-C206E247A65D}
