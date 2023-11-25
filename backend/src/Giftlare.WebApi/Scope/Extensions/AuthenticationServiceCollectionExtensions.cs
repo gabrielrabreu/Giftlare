@@ -14,9 +14,8 @@ namespace Giftlare.WebApi.Scope.Extensions
         {
             var authSettingsSection = configuration.GetSection("AuthSettings");
             services.Configure<AuthSettings>(authSettingsSection);
-            var authSettings = authSettingsSection.Get<AuthSettings>();
-            if (authSettings == null)
-                throw new ArgumentNullException(nameof(authSettings), "AuthSettings section not found.");
+
+            var authSettings = GetAuthSettings(authSettingsSection.Get<AuthSettings>());
 
             services
                 .AddAuthentication(x =>
@@ -46,6 +45,13 @@ namespace Giftlare.WebApi.Scope.Extensions
         {
             app.UseAuthentication();
             app.UseAuthorization();
+        }
+
+        private static AuthSettings GetAuthSettings(AuthSettings? authSettings)
+        {
+            if (authSettings == null)
+                throw new ArgumentNullException(nameof(authSettings), "AuthSettings section not found.");
+            return authSettings;
         }
     }
 }

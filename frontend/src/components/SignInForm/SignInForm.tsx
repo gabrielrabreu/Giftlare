@@ -28,7 +28,7 @@ const SignInForm: React.FC = () => {
       signIn(response.token, response.user);
       return <Navigate to="/home" />;
     } catch (error) {
-      var errorMessage = error;
+      let errorMessage = error;
       if (error instanceof Error) {
         errorMessage = error.message;
       }

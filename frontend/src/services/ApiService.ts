@@ -75,12 +75,8 @@ class ApiService {
     data?: any,
     config?: AxiosRequestConfig,
   ): Promise<T> {
-    try {
-      const response: AxiosResponse<T> = await this.api.post(url, data, config);
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
+    const response: AxiosResponse<T> = await this.api.post(url, data, config);
+    return response.data;
   }
 }
 

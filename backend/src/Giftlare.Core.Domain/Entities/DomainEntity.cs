@@ -2,6 +2,6 @@
 {
     public abstract class DomainEntity
     {
-        // Base class for domain entities
+        public Guid Id { get; set; }
     }
 }

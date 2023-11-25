@@ -52,9 +52,10 @@ namespace Giftlare.WebApi.Scope.Extensions
             app.UseSwaggerUI(options =>
             {
                 var provider = app.ApplicationServices.GetRequiredService<IApiVersionDescriptionProvider>();
-                foreach (var description in provider.ApiVersionDescriptions)
+                var versionNames = provider.ApiVersionDescriptions.Select(description => description.GroupName.ToUpperInvariant());
+                foreach (var versionName in versionNames)
                 {
-                    options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
+                    options.SwaggerEndpoint($"/swagger/{versionName}/swagger.json", versionName);
                 }
             });
         }

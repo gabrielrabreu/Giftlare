@@ -10,12 +10,13 @@ namespace Giftlare.Infra.DbMigrations.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            // teste
+            // Initial
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            // Initial
         }
     }
 }
