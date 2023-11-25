@@ -4,6 +4,7 @@ using Giftlare.Infra.DbEntities;
 using Giftlare.Security.Application.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Filters;
+using System.Globalization;
 
 namespace Giftlare.WebApi.Scope.Filters
 {
@@ -21,6 +22,9 @@ namespace Giftlare.WebApi.Scope.Filters
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
+            context.HttpContext.Request.Headers.TryGetValue("Language", out var languageHeaderValue);
+            ConfigureCulture(languageHeaderValue.FirstOrDefault()?.ToString() ?? "en-US");
+
             var identity = context.HttpContext.User.Identity;
 
             if (identity != null && identity.IsAuthenticated)
@@ -35,12 +39,20 @@ namespace Giftlare.WebApi.Scope.Filters
                         Email = user.Email ?? string.Empty,
                         Language = user.Language.GetEnumDisplayDescription()
                     });
+                    ConfigureCulture(user.Language.GetEnumDisplayDescription());
                 }
             }
         }
 
         public void OnActionExecuted(ActionExecutedContext context)
         {
+        }
+
+        private static void ConfigureCulture(string language)
+        {
+            var cultureInfo = new CultureInfo(language);
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
         }
     }
 }

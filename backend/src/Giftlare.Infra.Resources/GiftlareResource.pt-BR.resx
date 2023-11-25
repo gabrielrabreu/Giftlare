@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="InvalidAuthenticationMethod" xml:space="preserve">
-    <value>Invalid Authentication Method</value>
+    <value>Método de Autenticação Inválido</value>
   </data>
   <data name="OperationFailed" xml:space="preserve">
-    <value>Operation failed</value>
+    <value>Operação falhou</value>
   </data>
   <data name="SignInFailed" xml:space="preserve">
-    <value>Invalid email or password. Please check your credentials and try again.</value>
+    <value>E-mail ou senha inválidos. Verifique suas credenciais e tente novamente.</value>
   </data>
 </root>

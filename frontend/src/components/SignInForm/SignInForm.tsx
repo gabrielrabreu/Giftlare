@@ -2,11 +2,14 @@ import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Navigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import * as Yup from "yup";
 
 import accountService from "../../services/AccountService";
 import { SignInDto } from "../../interfaces/SignInDto";
 import { useAuth } from "../../contexts/AuthContext";
+import { translate } from "../../translate";
 
 import "./SignInForm.css";
 
@@ -21,13 +24,15 @@ const SignInForm: React.FC = () => {
   const onSubmit = async (values: SignInDto) => {
     try {
       const response = await accountService.signIn(values);
+      console.log(response);
       signIn(response.token, response.user);
+      return <Navigate to="/home" />;
     } catch (error) {
+      var errorMessage = error;
       if (error instanceof Error) {
-        console.error("Error:", error.message);
-      } else {
-        console.error(error);
+        errorMessage = error.message;
       }
+      toast.error(errorMessage as React.ReactNode);
     }
   };
 
@@ -43,11 +48,11 @@ const SignInForm: React.FC = () => {
       onSubmit={onSubmit}
     >
       {({ isValid, dirty }) => (
-        <Form className="sign-in-form">
+        <Form className="signin-form">
           <div className="form-field">
             <div className="label-container">
               <label htmlFor="email" className="label">
-                Email
+                {translate("signin.labels.email")}
               </label>
             </div>
             <div className="input-container">
@@ -59,7 +64,7 @@ const SignInForm: React.FC = () => {
           <div className="form-field">
             <div className="label-container">
               <label htmlFor="password" className="label">
-                Password
+                {translate("signin.labels.password")}
               </label>
             </div>
             <div className="input-container">
@@ -70,7 +75,7 @@ const SignInForm: React.FC = () => {
           </div>
           <div className="button-container">
             <button type="submit" disabled={!isValid || !dirty}>
-              Sign In
+              {translate("signin.buttons.submit")}
             </button>
           </div>
         </Form>

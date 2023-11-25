@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Giftlare.Infra.DbEntities\Giftlare.Infra.DbEntities.csproj" />
     <ProjectReference Include="..\Giftlare.Security.Contracts\Giftlare.Security.Contracts.csproj" />
+    <ProjectReference Include="..\Giftlare.Security.Domain\Giftlare.Security.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,13 +1,19 @@
-import SignInPage from "./pages/SignInPage/SignInPage";
+import { BrowserRouter as Router } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
 import { AuthProvider } from "./contexts/AuthContext";
+import AppRoutes from "./routes/AppRoutes";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <AuthProvider>
-      <div className="App">
-        <SignInPage />
-      </div>
-    </AuthProvider>
+    <Router>
+      <AuthProvider>
+        <ToastContainer />
+        <AppRoutes />
+      </AuthProvider>
+    </Router>
   );
 }
 

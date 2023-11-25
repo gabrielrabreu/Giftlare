@@ -30,11 +30,13 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   const saveAuthData = useCallback((newToken: string, newUser: UserDto) => {
     localStorage.setItem("token", newToken);
     localStorage.setItem("user", JSON.stringify(newUser));
+    localStorage.setItem("language", newUser.language);
   }, []);
 
   const clearAuthData = useCallback(() => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    localStorage.removeItem("language");
   }, []);
 
   const signIn = useCallback(
@@ -58,6 +60,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
     if (storedToken && storedUser) {
       setToken(storedToken);
       setUser(storedUser);
+    } else {
+      localStorage.setItem("language", navigator.language);
     }
   }, []);
 
