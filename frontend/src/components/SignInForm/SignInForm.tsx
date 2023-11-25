@@ -24,7 +24,6 @@ const SignInForm: React.FC = () => {
   const onSubmit = async (values: SignInDto) => {
     try {
       const response = await accountService.signIn(values);
-      console.log(response);
       signIn(response.token, response.user);
       return <Navigate to="/home" />;
     } catch (error) {
