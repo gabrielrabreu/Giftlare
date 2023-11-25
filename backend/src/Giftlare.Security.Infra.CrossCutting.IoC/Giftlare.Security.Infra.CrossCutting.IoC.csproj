@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Giftlare.Security.Application\Giftlare.Security.Application.csproj" />
+    <ProjectReference Include="..\Giftlare.Security.Infra.Repository\Giftlare.Security.Infra.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,17 @@
+{
+  "signin": {
+    "labels": {
+      "email": "Email",
+      "password": "Senha"
+    },
+    "buttons": {
+      "submit": "Entrar"
+    }
+  },
+  "common": {
+    "errors": {
+      "expiredToken": "Token expirado",
+      "unauthorizedAccess": "Acesso não autorizado"
+    }
+  }
+}
