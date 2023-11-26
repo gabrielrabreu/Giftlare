@@ -122,7 +122,7 @@ namespace Giftlare.Infra.DbMigrations.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Giftlare.Infra.DbEntities.GroupData", b =>
+            modelBuilder.Entity("Giftlare.Infra.DbEntities.GatheringData", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -134,9 +134,8 @@ namespace Giftlare.Infra.DbMigrations.Migrations
                     b.Property<DateTimeOffset>("CreatedOn")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<string>("InviteToken")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("InviteToken")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("LastModifiedBy")
                         .HasColumnType("uniqueidentifier");
@@ -150,10 +149,10 @@ namespace Giftlare.Infra.DbMigrations.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Group", (string)null);
+                    b.ToTable("Gathering", (string)null);
                 });
 
-            modelBuilder.Entity("Giftlare.Infra.DbEntities.GroupUserData", b =>
+            modelBuilder.Entity("Giftlare.Infra.DbEntities.GatheringMemberData", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -165,7 +164,7 @@ namespace Giftlare.Infra.DbMigrations.Migrations
                     b.Property<DateTimeOffset>("CreatedOn")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<Guid>("GroupId")
+                    b.Property<Guid>("GatheringId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("LastModifiedBy")
@@ -174,20 +173,20 @@ namespace Giftlare.Infra.DbMigrations.Migrations
                     b.Property<DateTimeOffset?>("LastModifiedOn")
                         .HasColumnType("datetimeoffset");
 
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("Role")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("GroupId");
+                    b.HasIndex("MemberId");
 
-                    b.HasIndex("UserId", "GroupId")
+                    b.HasIndex("GatheringId", "MemberId")
                         .IsUnique();
 
-                    b.ToTable("GroupUser", (string)null);
+                    b.ToTable("GatheringMember", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -293,19 +292,23 @@ namespace Giftlare.Infra.DbMigrations.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Giftlare.Infra.DbEntities.GroupUserData", b =>
+            modelBuilder.Entity("Giftlare.Infra.DbEntities.GatheringMemberData", b =>
                 {
-                    b.HasOne("Giftlare.Infra.DbEntities.GroupData", null)
-                        .WithMany()
-                        .HasForeignKey("GroupId")
+                    b.HasOne("Giftlare.Infra.DbEntities.GatheringData", "Gathering")
+                        .WithMany("Members")
+                        .HasForeignKey("GatheringId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Giftlare.Infra.DbEntities.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
+                    b.HasOne("Giftlare.Infra.DbEntities.ApplicationUser", "Member")
+                        .WithMany("Gatherings")
+                        .HasForeignKey("MemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Gathering");
+
+                    b.Navigation("Member");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -357,6 +360,16 @@ namespace Giftlare.Infra.DbMigrations.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Giftlare.Infra.DbEntities.ApplicationUser", b =>
+                {
+                    b.Navigation("Gatherings");
+                });
+
+            modelBuilder.Entity("Giftlare.Infra.DbEntities.GatheringData", b =>
+                {
+                    b.Navigation("Members");
                 });
 #pragma warning restore 612, 618
         }

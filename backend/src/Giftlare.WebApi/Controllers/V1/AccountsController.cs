@@ -1,6 +1,6 @@
 ﻿using Giftlare.Core.Domain.Extensions;
+using Giftlare.Enums;
 using Giftlare.Infra.DbEntities;
-using Giftlare.Infra.Resources;
 using Giftlare.Security.Application.Services.Interfaces;
 using Giftlare.Security.Contracts;
 using Giftlare.Security.Domain.Exceptions;
@@ -34,7 +34,7 @@ namespace Giftlare.WebApi.Controllers.V1
                 Name = signUpDto.Name,
                 UserName = signUpDto.Email,
                 Email = signUpDto.Email,
-                Language = EnumExtensions.GetEnumFromDescription<Language>(signUpDto.Language)
+                Language = EnumExtensions.GetEnumFromDescription<Languages>(signUpDto.Language)
             };
 
             var result = await _userManager.CreateAsync(user, signUpDto.Password);

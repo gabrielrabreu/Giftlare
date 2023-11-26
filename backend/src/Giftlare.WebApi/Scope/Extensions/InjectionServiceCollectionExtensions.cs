@@ -1,4 +1,5 @@
 ﻿using Giftlare.Security.Infra.CrossCutting.IoC;
+using Giftlare.Main.Infra.CrossCutting.IoC;
 using Giftlare.WebApi.Scope.Middlewares;
 
 namespace Giftlare.WebApi.Scope.Extensions
@@ -9,6 +10,7 @@ namespace Giftlare.WebApi.Scope.Extensions
         {
             services.AddTransient<ExceptionHandlingMiddleware>();
             services.AddSecurityServices();
+            services.AddMainServices();
         }
     }
 }

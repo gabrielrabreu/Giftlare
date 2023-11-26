@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Giftlare.Infra.Resources
+namespace Giftlare.Enums
 {
-    public enum Language
+    public enum Languages
     {
         [Display(Description = "en")]
         EN = 0,

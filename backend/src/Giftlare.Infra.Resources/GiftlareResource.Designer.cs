@@ -61,11 +61,110 @@ namespace Giftlare.Infra.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Admin required.
+        /// </summary>
+        public static string AdminRequired {
+            get {
+                return ResourceManager.GetString("AdminRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You need to be an Admin to perform that action..
+        /// </summary>
+        public static string AdminRequiredMessage {
+            get {
+                return ResourceManager.GetString("AdminRequiredMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Already a member.
+        /// </summary>
+        public static string AlreadyMember {
+            get {
+                return ResourceManager.GetString("AlreadyMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You is already a member of this gathering..
+        /// </summary>
+        public static string AlreadyMemberMessage {
+            get {
+                return ResourceManager.GetString("AlreadyMemberMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The invitation has expired. Generate a new invitation to proceed..
+        /// </summary>
+        public static string ExpiredInvitation {
+            get {
+                return ResourceManager.GetString("ExpiredInvitation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Field is required..
+        /// </summary>
+        public static string FieldRequired {
+            get {
+                return ResourceManager.GetString("FieldRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The field &apos;{0}&apos; is required..
+        /// </summary>
+        public static string FieldRequiredMessage {
+            get {
+                return ResourceManager.GetString("FieldRequiredMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid Authentication Method.
         /// </summary>
         public static string InvalidAuthenticationMethod {
             get {
                 return ResourceManager.GetString("InvalidAuthenticationMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The provided invitation is invalid. Please check and try again..
+        /// </summary>
+        public static string InvalidInvitation {
+            get {
+                return ResourceManager.GetString("InvalidInvitation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not found..
+        /// </summary>
+        public static string NotFound {
+            get {
+                return ResourceManager.GetString("NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The gathering associated with this invitation was not found..
+        /// </summary>
+        public static string NotFoundInvitation {
+            get {
+                return ResourceManager.GetString("NotFoundInvitation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &apos;{0}&apos; informed was not found..
+        /// </summary>
+        public static string NotFoundMessage {
+            get {
+                return ResourceManager.GetString("NotFoundMessage", resourceCulture);
             }
         }
         

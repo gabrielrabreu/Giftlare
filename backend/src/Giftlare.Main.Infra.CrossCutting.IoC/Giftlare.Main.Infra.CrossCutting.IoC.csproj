@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Giftlare.Main.Application\Giftlare.Main.Application.csproj" />
+    <ProjectReference Include="..\Giftlare.Main.Infra.Data\Giftlare.Main.Infra.Data.csproj" />
+  </ItemGroup>
+
 </Project>

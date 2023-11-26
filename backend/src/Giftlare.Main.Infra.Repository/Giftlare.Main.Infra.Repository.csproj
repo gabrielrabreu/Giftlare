@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Giftlare.Infra.DbEntities\Giftlare.Infra.DbEntities.csproj" />
+    <ProjectReference Include="..\Giftlare.Main.Domain\Giftlare.Main.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Giftlare.Infra.DbMigrations.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateGroupTables : Migration
+    public partial class CreateGatheringTables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Group",
+                name: "Gathering",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -25,16 +25,16 @@ namespace Giftlare.Infra.DbMigrations.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Group", x => x.Id);
+                    table.PrimaryKey("PK_Gathering", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "GroupUser",
+                name: "GatheringMember",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    GroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    GatheringId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MemberId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Role = table.Column<int>(type: "int", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
@@ -43,41 +43,41 @@ namespace Giftlare.Infra.DbMigrations.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GroupUser", x => x.Id);
+                    table.PrimaryKey("PK_GatheringMember", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_GroupUser_AspNetUsers_UserId",
-                        column: x => x.UserId,
+                        name: "FK_GatheringMember_AspNetUsers_MemberId",
+                        column: x => x.MemberId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_GroupUser_Group_GroupId",
-                        column: x => x.GroupId,
-                        principalTable: "Group",
+                        name: "FK_GatheringMember_Gathering_GatheringId",
+                        column: x => x.GatheringId,
+                        principalTable: "Gathering",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_GroupUser_GroupId",
-                table: "GroupUser",
-                column: "GroupId");
+                name: "IX_GatheringMember_GatheringId_MemberId",
+                table: "GatheringMember",
+                columns: new[] { "GatheringId", "MemberId" },
+                unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_GroupUser_UserId_GroupId",
-                table: "GroupUser",
-                columns: new[] { "UserId", "GroupId" },
-                unique: true);
+                name: "IX_GatheringMember_MemberId",
+                table: "GatheringMember",
+                column: "MemberId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "GroupUser");
+                name: "GatheringMember");
 
             migrationBuilder.DropTable(
-                name: "Group");
+                name: "Gathering");
         }
     }
 }

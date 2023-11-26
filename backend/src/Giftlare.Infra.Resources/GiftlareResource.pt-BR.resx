@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ExpiredInvitation" xml:space="preserve">
+    <value>O convite expirou. Gere um novo convite para continuar.</value>
+  </data>
+  <data name="FieldRequired" xml:space="preserve">
+    <value>Campo é obrigatório.</value>
+  </data>
+  <data name="FieldRequiredMessage" xml:space="preserve">
+    <value>O campo '{0}' é obrigatório.</value>
+  </data>
   <data name="InvalidAuthenticationMethod" xml:space="preserve">
     <value>Método de Autenticação Inválido</value>
+  </data>
+  <data name="NotFoundInvitation" xml:space="preserve">
+    <value>O grupo associado a este convite não foi encontrado.</value>
   </data>
   <data name="OperationFailed" xml:space="preserve">
     <value>Operação falhou</value>

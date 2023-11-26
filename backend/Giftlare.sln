@@ -35,19 +35,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftlare.Security.Contracts
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftlare.Security.Application", "src\Giftlare.Security.Application\Giftlare.Security.Application.csproj", "{190773EB-9121-4C92-903D-867B904498A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftlare.Enums", "src\Giftlare.Enums\Giftlare.Enums.csproj", "{121AC72C-84C5-4BA6-BF7D-FB4A4BB0BAB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftlare.Enums", "src\Giftlare.Enums\Giftlare.Enums.csproj", "{121AC72C-84C5-4BA6-BF7D-FB4A4BB0BAB1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Main", "Main", "{C1B71B15-1AB7-411F-A643-EB80FCF73ABA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftlare.Main.Domain", "src\Giftlare.Main.Domain\Giftlare.Main.Domain.csproj", "{D5363BB7-7C18-4416-A199-F1EB972EA1CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftlare.Main.Domain", "src\Giftlare.Main.Domain\Giftlare.Main.Domain.csproj", "{D5363BB7-7C18-4416-A199-F1EB972EA1CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftlare.Main.Application", "src\Giftlare.Main.Application\Giftlare.Main.Application.csproj", "{28B7A7E2-87FE-427C-A5FB-4A8C3975F4A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftlare.Main.Application", "src\Giftlare.Main.Application\Giftlare.Main.Application.csproj", "{28B7A7E2-87FE-427C-A5FB-4A8C3975F4A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftlare.Main.Contracts", "src\Giftlare.Main.Contracts\Giftlare.Main.Contracts.csproj", "{37DE782D-AA19-40D9-9792-3605845E8FCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftlare.Main.Contracts", "src\Giftlare.Main.Contracts\Giftlare.Main.Contracts.csproj", "{37DE782D-AA19-40D9-9792-3605845E8FCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftlare.Main.Infra.CrossCutting.IoC", "src\Giftlare.Main.Infra.CrossCutting.IoC\Giftlare.Main.Infra.CrossCutting.IoC.csproj", "{A27BCB53-6519-49D6-89A4-8C77CA2E8798}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftlare.Main.Infra.CrossCutting.IoC", "src\Giftlare.Main.Infra.CrossCutting.IoC\Giftlare.Main.Infra.CrossCutting.IoC.csproj", "{A27BCB53-6519-49D6-89A4-8C77CA2E8798}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftlare.Main.Infra.Repository", "src\Giftlare.Main.Infra.Repository\Giftlare.Main.Infra.Repository.csproj", "{CE99B868-C1E3-4C36-A0A1-14F40A99784C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftlare.Main.Infra.Data", "src\Giftlare.Main.Infra.Data\Giftlare.Main.Infra.Data.csproj", "{D71B6287-DB5C-4211-BAE0-CCF222B7793C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -119,10 +119,10 @@ Global
 		{A27BCB53-6519-49D6-89A4-8C77CA2E8798}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A27BCB53-6519-49D6-89A4-8C77CA2E8798}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A27BCB53-6519-49D6-89A4-8C77CA2E8798}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE99B868-C1E3-4C36-A0A1-14F40A99784C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE99B868-C1E3-4C36-A0A1-14F40A99784C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE99B868-C1E3-4C36-A0A1-14F40A99784C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE99B868-C1E3-4C36-A0A1-14F40A99784C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D71B6287-DB5C-4211-BAE0-CCF222B7793C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D71B6287-DB5C-4211-BAE0-CCF222B7793C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D71B6287-DB5C-4211-BAE0-CCF222B7793C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D71B6287-DB5C-4211-BAE0-CCF222B7793C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -148,7 +148,7 @@ Global
 		{28B7A7E2-87FE-427C-A5FB-4A8C3975F4A8} = {C1B71B15-1AB7-411F-A643-EB80FCF73ABA}
 		{37DE782D-AA19-40D9-9792-3605845E8FCF} = {C1B71B15-1AB7-411F-A643-EB80FCF73ABA}
 		{A27BCB53-6519-49D6-89A4-8C77CA2E8798} = {C1B71B15-1AB7-411F-A643-EB80FCF73ABA}
-		{CE99B868-C1E3-4C36-A0A1-14F40A99784C} = {C1B71B15-1AB7-411F-A643-EB80FCF73ABA}
+		{D71B6287-DB5C-4211-BAE0-CCF222B7793C} = {C1B71B15-1AB7-411F-A643-EB80FCF73ABA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C0C676-96BC-457A-9186-C206E247A65D}

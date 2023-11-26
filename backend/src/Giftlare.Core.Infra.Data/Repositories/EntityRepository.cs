@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Giftlare.Core.Infra.Data.Repositories
 {
     public abstract class EntityRepository<TDomainEntity, TDataEntity> : IEntityRepository<TDomainEntity>
-        where TDomainEntity : DomainEntity
+        where TDomainEntity : IAggregateRoot
         where TDataEntity : DataEntity
     {
         protected readonly IApplicationDbContext _context;
@@ -27,10 +27,10 @@ namespace Giftlare.Core.Infra.Data.Repositories
 
         public virtual TDomainEntity? GetById(Guid domainEntityId)
         {
-            var dataEntity = _dbSet.AsNoTracking().SingleOrDefault(x => x.Id == domainEntityId);
+            var dataEntity = _dbSet.AsNoTracking().SingleOrDefault(x => x.Id.Equals(domainEntityId));
             if (dataEntity != null)
                 return MapTo(dataEntity);
-            return null;
+            return default;
         }
 
         public virtual bool Exists(Guid domainEntityId)

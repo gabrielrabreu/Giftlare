@@ -7,7 +7,7 @@ using Giftlare.Core.Infra.Data.Entities;
 namespace Giftlare.Core.Infra.Data.Repositories
 {
     public abstract class AuditableRepository<TDomainEntity, TDataEntity> : EntityRepository<TDomainEntity, TDataEntity>, IEntityRepository<TDomainEntity>
-        where TDomainEntity : DomainEntity
+        where TDomainEntity : IAggregateRoot
         where TDataEntity : AuditableEntity
     {
         protected readonly ISessionService _sessionService;
@@ -22,7 +22,7 @@ namespace Giftlare.Core.Infra.Data.Repositories
         public override TDomainEntity Add(TDomainEntity domainEntity)
         {
             var dataEntity = MapTo(domainEntity);
-            dataEntity.OnCreate(_sessionService.User?.Id ?? Guid.Empty);
+            dataEntity.OnCreate(_sessionService.User.Id);
             _dbSet.Add(dataEntity);
             return domainEntity;
         }
@@ -30,7 +30,7 @@ namespace Giftlare.Core.Infra.Data.Repositories
         public override void Update(TDomainEntity domainEntity)
         {
             var dataEntity = MapTo(domainEntity);
-            dataEntity.OnUpdate(_sessionService.User?.Id ?? Guid.Empty);
+            dataEntity.OnUpdate(_sessionService.User.Id);
             _dbSet.Update(dataEntity);
 
             var entry = _context.GetDbEntry(dataEntity);
