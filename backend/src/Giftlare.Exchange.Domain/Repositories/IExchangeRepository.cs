@@ -5,9 +5,5 @@ namespace Giftlare.Exchange.Domain.Repositories
 {
     public interface IExchangeRepository : IAggregateRepository<ExchangeDomain>
     {
-        ExchangeDomain? GetById(Guid id);
-
-        void Add(ExchangeDomain domain);
-        void Update(ExchangeDomain domain);
     }
 }

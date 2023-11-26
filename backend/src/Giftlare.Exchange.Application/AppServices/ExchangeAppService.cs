@@ -8,7 +8,7 @@ namespace Giftlare.Exchange.Application.AppServices
 {
     public class ExchangeAppService : IExchangeAppService
     {
-        private IExchangeRepository _repository;
+        private readonly IExchangeRepository _repository;
 
         public ExchangeAppService(IExchangeRepository repository)
         {

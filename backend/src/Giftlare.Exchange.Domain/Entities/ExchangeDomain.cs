@@ -90,7 +90,7 @@ namespace Giftlare.Exchange.Domain.Entities
 
         private bool MemberExists(Guid memberId)
         {
-            return _members.Any(m => m.MemberId == memberId);
+            return _members.Exists(m => m.MemberId == memberId);
         }
     }
 }

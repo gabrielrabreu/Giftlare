@@ -10,15 +10,13 @@ namespace Giftlare.Exchange.Infra.Data.Repositories
 {
     public class ExchangeRepository : AggregateRepository<ExchangeDomain, ExchangeData>, IExchangeRepository
     {
-        private readonly ISessionService _sessionService;
-
         public ExchangeRepository(IApplicationDbContext context,
-                                  ISessionService sessionService) : base(context)
+                                  ISessionService sessionService) 
+            : base(context, sessionService)
         {
-            _sessionService = sessionService;
         }
 
-        public ExchangeDomain? GetById(Guid id)
+        public override ExchangeDomain? GetById(Guid id)
         {
             var dataEntity = _dbSet.AsNoTracking()
                 .Include(x => x.Members)
@@ -28,7 +26,7 @@ namespace Giftlare.Exchange.Infra.Data.Repositories
             return null;
         }
 
-        public void Add(ExchangeDomain domain)
+        public override void Add(ExchangeDomain domain)
         {
             var dataEntity = MapTo(domain);
 
@@ -41,7 +39,7 @@ namespace Giftlare.Exchange.Infra.Data.Repositories
             _dbSet.Add(dataEntity);
         }
 
-        public void Update(ExchangeDomain domain)
+        public override void Update(ExchangeDomain domain)
         {
             var dataEntity = MapTo(domain);
 
@@ -86,13 +84,13 @@ namespace Giftlare.Exchange.Infra.Data.Repositories
             }
         }
 
-        private static ExchangeDomain MapTo(ExchangeData dataEntity)
+        protected override ExchangeDomain MapTo(ExchangeData dataEntity)
         {
             var members = dataEntity.Members.Select(m => new ExchangeMemberDomain(m.Id, m.ExchangeId, m.MemberId, m.Role));
             return new ExchangeDomain(dataEntity.Id, dataEntity.Name, dataEntity.InviteToken, members.ToList());
         }
 
-        private static ExchangeData MapTo(ExchangeDomain domainEntity)
+        protected override ExchangeData MapTo(ExchangeDomain domainEntity)
         {
             return new ExchangeData
             {
