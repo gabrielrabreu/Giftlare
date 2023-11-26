@@ -61,29 +61,20 @@ namespace Giftlare.Infra.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid Authentication Method.
+        ///   Looks up a localized string similar to Sign in failed..
         /// </summary>
-        public static string InvalidAuthenticationMethod {
+        public static string SignInFailed {
             get {
-                return ResourceManager.GetString("InvalidAuthenticationMethod", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Operation failed.
-        /// </summary>
-        public static string OperationFailed {
-            get {
-                return ResourceManager.GetString("OperationFailed", resourceCulture);
+                return ResourceManager.GetString("SignInFailed", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Invalid email or password. Please check your credentials and try again..
         /// </summary>
-        public static string SignInFailed {
+        public static string SignInFailedMessage {
             get {
-                return ResourceManager.GetString("SignInFailed", resourceCulture);
+                return ResourceManager.GetString("SignInFailedMessage", resourceCulture);
             }
         }
     }

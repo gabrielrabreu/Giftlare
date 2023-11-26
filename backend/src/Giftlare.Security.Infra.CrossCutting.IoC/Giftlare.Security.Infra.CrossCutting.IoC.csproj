@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Giftlare.Security.Application\Giftlare.Security.Application.csproj" />
-    <ProjectReference Include="..\Giftlare.Security.Infra.Repository\Giftlare.Security.Infra.Repository.csproj" />
   </ItemGroup>
 
 </Project>

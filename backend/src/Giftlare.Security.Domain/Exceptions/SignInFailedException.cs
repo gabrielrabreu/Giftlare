@@ -3,9 +3,12 @@ using Giftlare.Infra.Resources;
 
 namespace Giftlare.Security.Domain.Exceptions
 {
-    public class SignInFailedException : OperationFailedException
+    public class SignInFailedException : SecurityException
     {
-        public SignInFailedException() : base(GiftlareResource.SignInFailed)
+        public SignInFailedException() 
+            : base(nameof(GiftlareResource.SignInFailed),
+                   GiftlareResource.SignInFailed,
+                   GiftlareResource.SignInFailedMessage)
         {
         }
     }

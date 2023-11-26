@@ -25,13 +25,13 @@ namespace Giftlare.WebApi.Scope.Middlewares
         private static async Task HandleExceptionAsync(HttpContext httpContext, Exception exception)
         {
             httpContext.Response.ContentType = "application/json";
-            if (exception is DetailedException detailedException)
+            if (exception is GiftlareException detailedException)
                 await TreatExceptionAsync(httpContext, detailedException);
             else
                 await TreatExceptionAsync(httpContext, exception);
         }
 
-        private static async Task TreatExceptionAsync(HttpContext httpContext, DetailedException detailedException)
+        private static async Task TreatExceptionAsync(HttpContext httpContext, GiftlareException detailedException)
         {
             httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
             var response = new

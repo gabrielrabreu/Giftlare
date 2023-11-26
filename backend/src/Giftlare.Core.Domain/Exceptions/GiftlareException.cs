@@ -1,12 +1,12 @@
 ﻿namespace Giftlare.Core.Domain.Exceptions
 {
-    public abstract class DetailedException : Exception
+    public abstract class GiftlareException : Exception
     {
         public string Type { get; set; }
         public string Error { get; set; }
         public string Detail { get; set; }
 
-        protected DetailedException(string type,
+        protected GiftlareException(string type,
                                     string error,
                                     string detail)
             : base(GetMessage(type, error, detail))
