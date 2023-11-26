@@ -16,11 +16,11 @@ namespace Giftlare.Exchange.Infra.Data.Repositories
         {
         }
 
-        public override ExchangeDomain? GetById(Guid id)
+        public override ExchangeDomain? GetById(Guid domainEntityId)
         {
             var dataEntity = _dbSet.AsNoTracking()
                 .Include(x => x.Members)
-                .SingleOrDefault(x => x.Id.Equals(id));
+                .SingleOrDefault(x => x.Id.Equals(domainEntityId));
             if (dataEntity != null)
                 return MapTo(dataEntity);
             return null;
