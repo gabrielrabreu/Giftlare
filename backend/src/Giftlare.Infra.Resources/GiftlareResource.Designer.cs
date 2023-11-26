@@ -61,20 +61,146 @@ namespace Giftlare.Infra.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign in failed..
+        ///   Looks up a localized string similar to Administrator.
         /// </summary>
-        public static string SignInFailed {
+        public static string Administrator {
             get {
-                return ResourceManager.GetString("SignInFailed", resourceCulture);
+                return ResourceManager.GetString("Administrator", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid email or password. Please check your credentials and try again..
+        ///   Looks up a localized string similar to Admin Privileges Required.
         /// </summary>
-        public static string SignInFailedMessage {
+        public static string AdminRequired {
             get {
-                return ResourceManager.GetString("SignInFailedMessage", resourceCulture);
+                return ResourceManager.GetString("AdminRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You need to have administrator privileges to perform this action. Please contact the exchange administrator..
+        /// </summary>
+        public static string AdminRequiredMessage {
+            get {
+                return ResourceManager.GetString("AdminRequiredMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authentication Failed.
+        /// </summary>
+        public static string AuthenticationFailed {
+            get {
+                return ResourceManager.GetString("AuthenticationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The provided credentials are invalid. Please check your username and password and try again..
+        /// </summary>
+        public static string AuthenticationFailedMessage {
+            get {
+                return ResourceManager.GetString("AuthenticationFailedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Existing Member.
+        /// </summary>
+        public static string ExistingMember {
+            get {
+                return ResourceManager.GetString("ExistingMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are already a member of this group. There is no need to request membership again..
+        /// </summary>
+        public static string ExistingMemberMessage {
+            get {
+                return ResourceManager.GetString("ExistingMemberMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expired Invitation.
+        /// </summary>
+        public static string ExpiredInvitation {
+            get {
+                return ResourceManager.GetString("ExpiredInvitation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The invitation has expired. Generate a new invitation to proceed..
+        /// </summary>
+        public static string ExpiredInvitationMessage {
+            get {
+                return ResourceManager.GetString("ExpiredInvitationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required Field.
+        /// </summary>
+        public static string FieldRequired {
+            get {
+                return ResourceManager.GetString("FieldRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &apos;{0}&apos; field is required. Please provide a value for this field..
+        /// </summary>
+        public static string FieldRequiredMessage {
+            get {
+                return ResourceManager.GetString("FieldRequiredMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Invitation.
+        /// </summary>
+        public static string InvalidInvitation {
+            get {
+                return ResourceManager.GetString("InvalidInvitation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The provided invitation is invalid. Please check and try again..
+        /// </summary>
+        public static string InvalidInvitationMessage {
+            get {
+                return ResourceManager.GetString("InvalidInvitationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member.
+        /// </summary>
+        public static string Member {
+            get {
+                return ResourceManager.GetString("Member", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entity Not Found.
+        /// </summary>
+        public static string NotFound {
+            get {
+                return ResourceManager.GetString("NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &apos;{0}&apos; that you informed was not found. Please check the value and try again..
+        /// </summary>
+        public static string NotFoundMessage {
+            get {
+                return ResourceManager.GetString("NotFoundMessage", resourceCulture);
             }
         }
     }

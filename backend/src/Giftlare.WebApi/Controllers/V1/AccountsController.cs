@@ -52,7 +52,7 @@ namespace Giftlare.WebApi.Controllers.V1
             var user = await _userManager.FindByNameAsync(signInDto.Email);
 
             if (!result.Succeeded || user == null)
-                throw new SignInFailedException();
+                throw new AuthenticationFailedException();
             return TokenResult(user);
         }
 

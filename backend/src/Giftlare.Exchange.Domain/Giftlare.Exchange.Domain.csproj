@@ -4,6 +4,16 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<NoWarn>CS8618</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.24.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Giftlare.Core.Domain\Giftlare.Core.Domain.csproj" />
+    <ProjectReference Include="..\Giftlare.Exchange.Contracts\Giftlare.Exchange.Contracts.csproj" />
+  </ItemGroup>
 
 </Project>

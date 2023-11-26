@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Giftlare.Infra.Resources\Giftlare.Infra.Resources.csproj" />
+    <ProjectReference Include="..\Giftlare.Exchange.Application\Giftlare.Exchange.Application.csproj" />
+    <ProjectReference Include="..\Giftlare.Exchange.Infra.Data\Giftlare.Exchange.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

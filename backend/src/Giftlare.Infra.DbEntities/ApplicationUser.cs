@@ -7,5 +7,6 @@ namespace Giftlare.Infra.DbEntities
     {
         public string? Name { get; set; }
         public Languages Language { get; set; }
+        public virtual ICollection<ExchangeMemberData> Exchanges { get; set; }
     }
 }
