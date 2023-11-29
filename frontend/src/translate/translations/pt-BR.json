@@ -8,10 +8,16 @@
       "submit": "Entrar"
     }
   },
-  "common": {
-    "errors": {
-      "expiredToken": "Token expirado",
-      "unauthorizedAccess": "Acesso não autorizado"
-    }
+  "navbar": {
+    "home": "Home",
+    "exchange": "Meus grupos",
+    "logout": "Sair"
+  },
+  "footer": {
+    "follow-us": "Siga-nos",
+    "copyright": "2023 Giftlare. Todos os direitos reservados."
+  },
+  "exchanges": {
+    "title": "Meus grupos"
   }
 }

@@ -19,7 +19,9 @@ interface AuthContextProps {
   loadAuthData: () => void;
 }
 
-const AuthContext = createContext<AuthContextProps | undefined>(undefined);
+export const AuthContext = createContext<AuthContextProps | undefined>(
+  undefined,
+);
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   children,

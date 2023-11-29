@@ -4,8 +4,7 @@ import ApiService from "./ApiService";
 
 class AccountService extends ApiService {
   async signIn(data: SignInDto): Promise<SignInResultDto> {
-    const response = await this.post("/v1/accounts/signin", data);
-    return response as SignInResultDto;
+    return await this.post<SignInResultDto>("/v1/accounts/signin", data);
   }
 }
 

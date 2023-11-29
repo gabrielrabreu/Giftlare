@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
+import ExchangesPage from "../pages/ExchangesPage/ExchangesPage";
 import SignInPage from "../pages/SignInPage/SignInPage";
 import HomePage from "../pages/HomePage/HomePage";
 import PrivateRoute from "./PrivateRoute";
@@ -13,6 +14,14 @@ const AppRoutes = () => {
         element={
           <PrivateRoute>
             <HomePage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/exchanges"
+        element={
+          <PrivateRoute>
+            <ExchangesPage />
           </PrivateRoute>
         }
       />

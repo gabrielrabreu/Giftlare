@@ -142,6 +142,15 @@ namespace Giftlare.Infra.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your session has expired. Please sign in again to continue..
+        /// </summary>
+        public static string ExpiredToken {
+            get {
+                return ResourceManager.GetString("ExpiredToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Required Field.
         /// </summary>
         public static string FieldRequired {
@@ -178,6 +187,15 @@ namespace Giftlare.Infra.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The authentication token is invalid. Please sign in again..
+        /// </summary>
+        public static string InvalidToken {
+            get {
+                return ResourceManager.GetString("InvalidToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Member.
         /// </summary>
         public static string Member {
@@ -201,6 +219,15 @@ namespace Giftlare.Infra.Resources {
         public static string NotFoundMessage {
             get {
                 return ResourceManager.GetString("NotFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unauthorized access. Please check your credentials or request access..
+        /// </summary>
+        public static string UnauthorizedAccess {
+            get {
+                return ResourceManager.GetString("UnauthorizedAccess", resourceCulture);
             }
         }
     }

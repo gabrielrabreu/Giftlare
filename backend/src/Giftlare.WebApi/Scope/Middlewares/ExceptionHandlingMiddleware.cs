@@ -34,13 +34,13 @@ namespace Giftlare.WebApi.Scope.Middlewares
         private static async Task TreatExceptionAsync(HttpContext httpContext, GiftlareException detailedException)
         {
             httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
-            var response = new
+            var response = new ErrorResponseDto
             {
-                type = detailedException.Type,
-                error = detailedException.Error,
-                detail = detailedException.Detail,
-                instance = httpContext.Request.Path.Value,
-                traceId = Activity.Current?.TraceId.ToString()
+                Type = detailedException.Type,
+                Error = detailedException.Error,
+                Detail = detailedException.Detail,
+                Instance = httpContext.Request.Path.Value,
+                TraceId = Activity.Current?.TraceId.ToString()
             };
             await httpContext.Response.WriteAsync(JsonSerializer.Serialize(response));
         }
@@ -48,15 +48,15 @@ namespace Giftlare.WebApi.Scope.Middlewares
         private static async Task TreatExceptionAsync(HttpContext httpContext, Exception exception)
         {
             httpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
-            var response = new
+            var response = new ErrorResponseDto
             {
-                type = "InternalServerError",
-                error = "InternalServerError",
-                detail = exception.Message,
-                instance = httpContext.Request.Path.Value,
-                traceId = Activity.Current?.TraceId.ToString()
+                Type = "InternalServerError",
+                Error = "InternalServerError",
+                Detail = exception.Message,
+                Instance = httpContext.Request.Path.Value,
+                TraceId = Activity.Current?.TraceId.ToString()
             };
-            await httpContext.Response.WriteAsync(JsonSerializer.Serialize(response));
+            await httpContext.Response.WriteAsync(response.Serialize());
         }
     }
 }

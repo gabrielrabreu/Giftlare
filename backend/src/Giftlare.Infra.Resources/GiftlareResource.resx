@@ -144,6 +144,9 @@
   <data name="ExpiredInvitationMessage" xml:space="preserve">
     <value>The invitation has expired. Generate a new invitation to proceed.</value>
   </data>
+  <data name="ExpiredToken" xml:space="preserve">
+    <value>Your session has expired. Please sign in again to continue.</value>
+  </data>
   <data name="FieldRequired" xml:space="preserve">
     <value>Required Field</value>
   </data>
@@ -156,6 +159,9 @@
   <data name="InvalidInvitationMessage" xml:space="preserve">
     <value>The provided invitation is invalid. Please check and try again.</value>
   </data>
+  <data name="InvalidToken" xml:space="preserve">
+    <value>The authentication token is invalid. Please sign in again.</value>
+  </data>
   <data name="Member" xml:space="preserve">
     <value>Member</value>
   </data>
@@ -164,5 +170,8 @@
   </data>
   <data name="NotFoundMessage" xml:space="preserve">
     <value>The '{0}' that you informed was not found. Please check the value and try again.</value>
+  </data>
+  <data name="UnauthorizedAccess" xml:space="preserve">
+    <value>Unauthorized access. Please check your credentials or request access.</value>
   </data>
 </root>
