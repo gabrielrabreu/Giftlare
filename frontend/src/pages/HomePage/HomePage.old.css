@@ -1,0 +1,111 @@
+.home-page {
+  text-align: center;
+  height: 100vh;
+}
+
+/* Primeira Seção */
+.first-section {
+  background-image: url("../../../public/fbmpjuprubvt4drbkrpd.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  padding: 100px; /* Ajuste conforme necessário */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Cor preta com opacidade de 50% */
+}
+
+.centered-text {
+  position: relative;
+  z-index: 1; /* Coloca o texto acima da sobreposição */
+  text-align: left;
+}
+
+.centered-text .main-text {
+  font-size: 82px;
+  margin: 0;
+  color: white; /* Cor do texto branco */
+}
+
+.centered-text .small-text {
+  font-size: 18px;
+  color: white; /* Cor do texto branco */
+}
+
+/* Segunda Seção */
+.second-section {
+  background-color: #fefae0; /* Cor de fundo */
+  color: #333; /* Cor do texto */
+  padding: 50px; /* Ajuste conforme necessário */
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-column {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.image-column {
+  width: 50%;
+}
+
+.second-section-text {
+  text-align: left;
+}
+
+.section-title {
+  font-size: 42px;
+  margin: 0;
+}
+
+.section-text {
+  font-size: 17px;
+}
+
+.green-button {
+  background-color: #283618; /* Cor verde */
+  color: white; /* Cor do texto branco */
+  padding: 10px 20px; /* Ajuste conforme necessário */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-text {
+  font-size: 14px;
+}
+
+.second-section-image {
+  max-width: 100%; /* Ajuste conforme necessário */
+}
+
+/* Terceira Seção */
+.third-section {
+  background-color: #e05252; /* Cor de fundo */
+  color: #333; /* Cor do texto */
+  padding: 50px; /* Ajuste conforme necessário */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.third-section-text {
+  text-align: right;
+}
+
+.third-section-image {
+  max-width: 50%; /* Ajuste conforme necessário */
+}

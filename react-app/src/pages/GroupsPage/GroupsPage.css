@@ -1,0 +1,59 @@
+.groups-content {
+  padding: 2.5rem 12.5rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.page-header-description {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #555;
+}
+
+.groups-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.group-item {
+  width: 20%;
+  margin-right: 1.5%; 
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.group-item:nth-child(4n) {
+  margin-right: 0;
+}
+
+.group-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.group-info {
+  margin-top: 1rem;
+}
+
+.group-info h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.group-info p {
+  font-size: 0.875rem;
+  color: #777;
+}

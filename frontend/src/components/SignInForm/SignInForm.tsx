@@ -35,9 +35,11 @@ const SignInForm: React.FC = () => {
     }
   };
 
+  const useDefault = true;
+
   const initialValues: SignInDto = {
-    email: "",
-    password: "",
+    email: useDefault ? process.env.REACT_APP_DEFAULT_USERNAME || "" : "",
+    password: useDefault ? process.env.REACT_APP_DEFAULT_PASSWORD || "" : "",
   };
 
   return (
@@ -68,12 +70,20 @@ const SignInForm: React.FC = () => {
             </div>
             <div className="input-container">
               <FontAwesomeIcon icon={faLock} className="icon" />
-              <Field type="password" id="password" name="password" />
+              <Field
+                type="password"
+                id="password"
+                name="password"
+                autoComplete="current-password"
+              />
             </div>
             <ErrorMessage name="password" component="div"></ErrorMessage>
           </div>
           <div className="button-container">
-            <button type="submit" disabled={!isValid || !dirty}>
+            <button
+              type="submit"
+              disabled={useDefault ? false : !isValid || !dirty}
+            >
               {translate("signin.buttons.submit")}
             </button>
           </div>

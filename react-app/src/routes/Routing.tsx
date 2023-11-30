@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
+import React from "react";
 
-import ExchangesPage from "../pages/ExchangesPage/ExchangesPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
-import SignInPage from "../pages/SignInPage/SignInPage";
+import MainLayout from "../layouts/MainLayout/MainLayout";
+import GroupsPage from "../pages/GroupsPage/GroupsPage";
 import HomePage from "../pages/HomePage/HomePage";
-import MainLayout from "../layouts/MainLayout";
 
-const AppRoutes = () => {
+const Routing = () => {
   return (
     <Routes>
       <Route
@@ -16,19 +16,18 @@ const AppRoutes = () => {
             <HomePage />
           </MainLayout>
         }
-      />
-      <Route path="/signin" element={<SignInPage />} />
+      ></Route>
       <Route
-        path="/exchanges"
+        path="/groups"
         element={
           <MainLayout>
-            <ExchangesPage />
+            <GroupsPage />
           </MainLayout>
         }
-      />
+      ></Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };
 
-export default AppRoutes;
+export default Routing;

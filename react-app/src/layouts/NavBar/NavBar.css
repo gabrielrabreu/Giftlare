@@ -1,0 +1,74 @@
+.nav {
+  background-image: url("/public/images/fbmpjuprubvt4drbkrpd.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.nav-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.nav-content {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 12.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-logo {
+  font-size: 1.625rem;
+  font-weight: 600;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  margin: 0;
+  padding: 0;
+  margin-left: 2.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-link a:hover {
+  text-decoration: underline;
+}
+
+.nav-description {
+  color: #fff;
+  padding: 1.25rem 12.5rem;
+  z-index: 1;
+  position: relative;
+  width: 50%;
+}
+
+.nav-title {
+  font-size: 5.125rem;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.nav-subtitle {
+  font-size: 1.125rem;
+  font-weight: 300;
+  margin-bottom: 3.75rem;
+}

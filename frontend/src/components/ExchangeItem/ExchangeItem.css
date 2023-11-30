@@ -2,7 +2,7 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   margin: 5px;
-  flex: 0 0 calc(33.333% - 20px); /* Ajuste o tamanho dos cards conforme necessário */
+  flex: 0 0 calc(33.333% - 20px);
 }
 
 .exchange-card h3 {

@@ -1,0 +1,12 @@
+.container {
+  padding: 0 50px;
+  background-color: #fefae0;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}

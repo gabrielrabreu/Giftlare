@@ -1,0 +1,65 @@
+.home-content {
+  padding: 2.5rem 12.5rem;
+}
+
+.section {
+  margin-top: 1.875rem;
+  margin-bottom: 6.25rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-column-left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 3.125rem;
+}
+
+.section-column-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 3.125rem;
+}
+
+.section-title {
+  font-size: 2.625rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.section-description {
+  font-size: 1.0625rem;
+  font-weight: 400;
+}
+
+.section-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-button {
+  background-color: #283618;
+  border: none;
+  display: inline-block;
+  padding: 1.25rem 3.125rem; 
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.section-button:hover {
+  background-color: #20512e;
+}
+
+.section-button-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
