@@ -5,7 +5,7 @@ import "./HomePage.css";
 
 const HomePage: React.FC = () => {
   return (
-    <div className="home-content">
+    <div className="home-container">
       <div className="section">
         <div className="section-column-left">
           <div className="section-text">
@@ -17,8 +17,8 @@ const HomePage: React.FC = () => {
               Join or create groups with your loved ones and discover the fun of
               festive gifting. Allow the spirit of giving to bring you closer.
             </p>
-            <Link to="/groups" className="section-button">
-              <span className="section-button-text">Join a Group Now</span>
+            <Link to="/list-groups" className="section-button">
+              <span className="section-button-text">See a Group Now</span>
             </Link>
           </div>
         </div>
@@ -46,7 +46,7 @@ const HomePage: React.FC = () => {
               you create it. Develop your own group, invite friends and see the
               joy multiply. Unwrap happiness today.
             </p>
-            <Link to="/create" className="section-button">
+            <Link to="/create-group" className="section-button">
               <span className="section-button-text">Create a Group Now</span>
             </Link>
           </div>

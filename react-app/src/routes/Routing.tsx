@@ -1,9 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import React from "react";
 
+import CreateGroupPage from "../pages/CreateGroupPage/CreateGroupPage";
+import ListGroupPage from "../pages/ListGroupPage/ListGroupPage";
+import ViewGroupPage from "../pages/ViewGroupPage/ViewGroupPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import MainLayout from "../layouts/MainLayout/MainLayout";
-import GroupsPage from "../pages/GroupsPage/GroupsPage";
 import HomePage from "../pages/HomePage/HomePage";
 
 const Routing = () => {
@@ -18,10 +20,26 @@ const Routing = () => {
         }
       ></Route>
       <Route
-        path="/groups"
+        path="/list-groups"
         element={
           <MainLayout>
-            <GroupsPage />
+            <ListGroupPage />
+          </MainLayout>
+        }
+      ></Route>
+      <Route
+        path="/create-group"
+        element={
+          <MainLayout>
+            <CreateGroupPage />
+          </MainLayout>
+        }
+      ></Route>
+      <Route
+        path="/view-group"
+        element={
+          <MainLayout>
+            <ViewGroupPage />
           </MainLayout>
         }
       ></Route>

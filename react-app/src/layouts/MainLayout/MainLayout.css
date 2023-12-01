@@ -24,3 +24,35 @@ body {
 .container-content {
   flex-grow: 1;
 }
+
+.page-container {
+  padding: 4rem 2rem;
+}
+
+.page-content {
+  background-color: #fff8f8ff;
+  padding: 1.5rem 10.5rem;
+  padding-bottom: 5rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.page-header-description {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #555;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}

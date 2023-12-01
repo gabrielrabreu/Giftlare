@@ -1,5 +1,5 @@
 import { Link, useMatch } from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
 
 import "./NavBar.css";
 
@@ -16,10 +16,10 @@ const NavBar: React.FC = () => {
             <Link to="/">Home</Link>
           </li>
           <li className="nav-link">
-            <Link to="/groups">Groups</Link>
+            <Link to="/list-groups">Groups</Link>
           </li>
           <li className="nav-link">
-            <Link to="/create">Create</Link>
+            <Link to="/create-group">Create</Link>
           </li>
           <li className="nav-link">
             <Link to="/contact">Contact</Link>
