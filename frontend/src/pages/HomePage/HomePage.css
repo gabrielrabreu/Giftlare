@@ -1,80 +1,65 @@
-.principal-section {
-  background-image: url("../../../public/fbmpjuprubvt4drbkrpd.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+.home-container {
+  padding: 2.5rem 12.5rem;
 }
 
-.principal-section .overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-}
-
-.principal-section .section-text {
-  position: relative;
-  text-align: left;
-  width: 70%;
-}
-
-.principal-section .section-text .section-title {
-  font-size: 82px;
-  margin: 0;
-  color: white;
-}
-
-.principal-section .section-text .section-description {
-  font-size: 18px;
-  color: white;
-}
-
-.image-section {
+.section {
+  margin-top: 1.875rem;
+  margin-bottom: 6.25rem;
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
 }
 
-.image-section .text-column {
-  width: 55%;
+.section-column-left {
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-right: 3.125rem;
 }
 
-.image-section .text-column .section-text {
-  text-align: left;
+.section-column-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 3.125rem;
 }
 
-.image-section .text-column .section-text .section-title {
-  font-size: 42px;
+.section-title {
+  font-size: 2.625rem;
   margin: 0;
+  font-weight: 500;
 }
 
-.image-section .text-column .section-text .section-description {
-  font-size: 17px;
+.section-description {
+  font-size: 1.0625rem;
+  font-weight: 400;
 }
 
-.image-section .text-column .section-text .green-button {
+.section-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-button {
   background-color: #283618;
-  color: white;
-  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  display: inline-block;
+  padding: 1.25rem 3.125rem; 
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.image-section .text-column .section-text .green-button .button-text {
-  font-size: 14px;
+.section-button:hover {
+  background-color: #20512e;
 }
 
-.image-section .image-column {
-  width: 45%;
-}
-
-.image-section .image-column .section-image {
-  max-width: 75%;
+.section-button-text {
+  font-size: 0.875rem;
+  font-weight: 500;
 }

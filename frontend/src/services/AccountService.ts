@@ -1,10 +1,10 @@
-import { SignInResultDto } from "../interfaces/SignInResultDto";
-import { SignInDto } from "../interfaces/SignInDto";
+import { LoginResponseInterface } from "../interfaces/LoginResponseInterface";
+import { LoginInterface } from "../interfaces/LoginInterface";
 import ApiService from "./ApiService";
 
 class AccountService extends ApiService {
-  async signIn(data: SignInDto): Promise<SignInResultDto> {
-    return await this.post<SignInResultDto>("/v1/accounts/signin", data);
+  async login(data: LoginInterface): Promise<LoginResponseInterface> {
+    return await this.post<LoginResponseInterface>("/v1/accounts/signin", data);
   }
 }
 

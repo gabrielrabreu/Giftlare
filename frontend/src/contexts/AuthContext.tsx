@@ -7,16 +7,21 @@ import React, {
   useMemo,
   useCallback,
 } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { UserDto } from "../interfaces/UserDto";
+import { UserInterface } from "../interfaces/UserInterface";
 
 interface AuthContextProps {
   token: string | null;
-  user: UserDto | null;
-  signIn: (token: string, user: UserDto) => void;
+  user: UserInterface | null;
+  login: (token: string, user: UserInterface) => void;
   logout: () => void;
-  saveAuthData: (token: string, user: UserDto) => void;
+  saveAuthData: (token: string, user: UserInterface) => void;
   loadAuthData: () => void;
+  isLoginModalOpen: boolean;
+  openLoginModal: () => void;
+  closeLoginModal: () => void;
+  restrictedNavigate: (desiredRoute: string) => void;
 }
 
 export const AuthContext = createContext<AuthContextProps | undefined>(
@@ -26,14 +31,20 @@ export const AuthContext = createContext<AuthContextProps | undefined>(
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [token, setToken] = useState<string | null>(null);
-  const [user, setUser] = useState<UserDto | null>(null);
+  const navigate = useNavigate();
 
-  const saveAuthData = useCallback((newToken: string, newUser: UserDto) => {
-    localStorage.setItem("token", newToken);
-    localStorage.setItem("user", JSON.stringify(newUser));
-    localStorage.setItem("language", newUser.language);
-  }, []);
+  const [token, setToken] = useState<string | null>(null);
+  const [user, setUser] = useState<UserInterface | null>(null);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  const saveAuthData = useCallback(
+    (newToken: string, newUser: UserInterface) => {
+      localStorage.setItem("token", newToken);
+      localStorage.setItem("user", JSON.stringify(newUser));
+      localStorage.setItem("language", newUser.language);
+    },
+    [],
+  );
 
   const clearAuthData = useCallback(() => {
     localStorage.removeItem("token");
@@ -41,8 +52,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
     localStorage.removeItem("language");
   }, []);
 
-  const signIn = useCallback(
-    (newToken: string, newUser: UserDto) => {
+  const login = useCallback(
+    (newToken: string, newUser: UserInterface) => {
       setToken(newToken);
       setUser(newUser);
       saveAuthData(newToken, newUser);
@@ -67,9 +78,50 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
     }
   }, []);
 
+  const openLoginModal = useCallback(() => {
+    setIsLoginModalOpen(true);
+  }, []);
+
+  const closeLoginModal = useCallback(() => {
+    setIsLoginModalOpen(false);
+  }, []);
+
+  const restrictedNavigate = useCallback(
+    (desiredRoute: string) => {
+      if (user != null) {
+        navigate(desiredRoute);
+      } else {
+        openLoginModal();
+      }
+    },
+    [user, navigate, openLoginModal],
+  );
+
   const contextValue = useMemo(() => {
-    return { token, user, signIn, logout, saveAuthData, loadAuthData };
-  }, [token, user, signIn, logout, saveAuthData, loadAuthData]);
+    return {
+      token,
+      user,
+      login,
+      logout,
+      saveAuthData,
+      loadAuthData,
+      isLoginModalOpen,
+      openLoginModal,
+      closeLoginModal,
+      restrictedNavigate,
+    };
+  }, [
+    token,
+    user,
+    login,
+    logout,
+    saveAuthData,
+    loadAuthData,
+    isLoginModalOpen,
+    openLoginModal,
+    closeLoginModal,
+    restrictedNavigate,
+  ]);
 
   useEffect(() => {
     loadAuthData();

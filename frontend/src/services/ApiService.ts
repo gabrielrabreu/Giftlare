@@ -63,9 +63,9 @@ class ApiService {
           console.log(error.response.data);
           if (status === 401) {
             ApiServiceConfig.logout();
-            throw new Error(error.response.data.detail);
+            throw new Error(error.response.data.detail || error.message);
           } else if (status === 403) {
-            throw new Error(error.response.data.detail);
+            throw new Error(error.response.data.detail || error.message);
           } else {
             throw new Error(error.response.data.detail || error.message);
           }

@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "giftlare",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,14 +8,13 @@
     "@fortawesome/free-brands-svg-icons": "^6.5.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@react-oauth/google": "^0.12.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.61",
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
+    "@types/node": "^16.18.66",
+    "@types/react": "^18.2.39",
+    "@types/react-dom": "^18.2.17",
     "axios": "^1.6.2",
     "formik": "^2.4.5",
     "react": "^18.2.0",
@@ -32,7 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sonar-scan": "sonar-scanner"
+    "sonar": "sonar"
   },
   "eslintConfig": {
     "extends": [
@@ -53,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "prettier": "^3.1.0",
     "prettier-plugin-sort-imports": "^1.7.2",
     "sonarqube-scanner": "^3.3.0"
