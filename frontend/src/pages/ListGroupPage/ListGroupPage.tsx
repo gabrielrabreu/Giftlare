@@ -15,14 +15,13 @@ const ListGroupPage: React.FC = () => {
     null,
   );
   const [page, setPage] = useState<number>(1);
-  const [size] = useState<number>(4);
 
   useEffect(() => {
     const fetch = async () => {
       try {
         const parameters: PagedParameters = {
           page: page,
-          size: size,
+          size: 4,
         };
         const options = await groupService.paged(parameters);
         setPagedList(options);
@@ -32,7 +31,7 @@ const ListGroupPage: React.FC = () => {
       }
     };
     fetch();
-  }, [page, size]);
+  }, [page]);
 
   const handleNextPage = () => {
     setPage((prevPage) => prevPage + 1);
@@ -57,7 +56,14 @@ const ListGroupPage: React.FC = () => {
               <div
                 key={group.id}
                 className="group-item"
+                role="button"
+                tabIndex={0}
                 onClick={() => restrictedNavigate(`/view-group/${group.id}`)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    restrictedNavigate(`/view-group/${group.id}`);
+                  }
+                }}
               >
                 <img
                   src={

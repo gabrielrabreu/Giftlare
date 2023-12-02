@@ -7,8 +7,6 @@ import React from "react";
 import { CreateGroupInterface } from "../../interfaces/CreateGroupInterface";
 import groupService from "../../services/GroupService";
 
-import "./CreateGroupPage.css";
-
 const validationSchema = Yup.object({
   name: Yup.string().required("Please enter a name"),
   image: Yup.string().required("Please enter an image"),

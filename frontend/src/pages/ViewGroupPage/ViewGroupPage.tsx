@@ -1,8 +1,6 @@
 import { useParams } from "react-router-dom";
 import React from "react";
 
-import "./ViewGroupPage.css";
-
 const ViewGroupPage: React.FC = () => {
   const { groupId } = useParams<{ groupId: string }>();
   console.log(groupId);
