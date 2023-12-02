@@ -53,17 +53,10 @@ const ListGroupPage: React.FC = () => {
             <p>No groups available.</p>
           ) : (
             pagedList.data.map((group) => (
-              <div
+              <button
                 key={group.id}
                 className="group-item"
-                role="button"
-                tabIndex={0}
                 onClick={() => restrictedNavigate(`/view-group/${group.id}`)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    restrictedNavigate(`/view-group/${group.id}`);
-                  }
-                }}
               >
                 <img
                   src={
@@ -71,13 +64,13 @@ const ListGroupPage: React.FC = () => {
                     "images/tatiana-byzova-nbe4qiyfwx8-unsplashjpg_1677495264_54382.jpg"
                   }
                   className="group-image"
-                  alt="Imagem do Group 1"
+                  alt={`Group ${group.name}`}
                 />
                 <div className="group-info">
                   <h3>{group.name}</h3>
                   <p>{group.totalMembers} members</p>
                 </div>
-              </div>
+              </button>
             ))
           )}
         </div>
