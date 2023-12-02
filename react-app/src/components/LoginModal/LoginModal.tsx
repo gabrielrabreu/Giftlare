@@ -3,40 +3,39 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import React from "react";
 
-import { CreateGroupInterface } from "../../interfaces/CreateGroupInterface";
+import { LoginInterface } from "../../interfaces/LoginInterface";
 
-import "./CreateGroupPage.css";
+import "./LoginPage.css";
 
 const validationSchema = Yup.object({
-  name: Yup.string().required("Please enter a name"),
+  email: Yup.string().required("Please enter an email"),
+  password: Yup.string().required("Please enter a password"),
 });
 
-const CreateGroupPage: React.FC = () => {
+const LoginModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const navigate = useNavigate();
 
-  const initialValues: CreateGroupInterface = {
-    name: "",
+  const initialValues: LoginInterface = {
+    email: "",
+    password: "",
   };
 
-  const handleSubmit = async (values: CreateGroupInterface) => {
+  const handleSubmit = async (values: LoginInterface) => {
     try {
-      navigate("/view-group/0");
+      onClose();
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
   };
 
   const handleCancel = () => {
-    navigate("/list-groups");
+    onClose();
   };
 
   return (
-    <div className="page-container">
-      <div className="page-content">
-        <div className="page-header">
-          <p className="page-header-title">Create a Group</p>
-          <p className="page-header-description">The page description</p>
-        </div>
+    <div className="login-modal">
+      <div className="login-content">
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -45,18 +44,34 @@ const CreateGroupPage: React.FC = () => {
           {({ isValid, dirty }) => (
             <Form className="form">
               <div className="form-group">
-                <label className="form-label" htmlFor="name">
-                  Name:
+                <label className="form-label" htmlFor="email">
+                  Email:
                 </label>
                 <Field
                   className="form-input"
                   type="text"
-                  id="name"
-                  name="name"
+                  id="email"
+                  name="email"
                 />
                 <ErrorMessage
                   className="form-error"
-                  name="name"
+                  name="email"
+                  component="div"
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor="email">
+                  Password:
+                </label>
+                <Field
+                  className="form-input"
+                  type="password"
+                  id="password"
+                  name="password"
+                />
+                <ErrorMessage
+                  className="form-error"
+                  name="password"
                   component="div"
                 />
               </div>
@@ -84,4 +99,4 @@ const CreateGroupPage: React.FC = () => {
   );
 };
 
-export default CreateGroupPage;
+export default LoginModal;

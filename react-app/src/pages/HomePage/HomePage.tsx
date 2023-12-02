@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
           <img
             src="images/mifcypa0yqslostibhfx.jpg"
             className="section-image"
-            alt="Section"
+            alt="Christmas Celebration"
           ></img>
         </div>
       </div>
@@ -35,7 +35,7 @@ const HomePage: React.FC = () => {
           <img
             src="images/demmqv130xrtnxb7l0qa.jpg"
             className="section-image"
-            alt="Section"
+            alt="Create Your Own Group"
           ></img>
         </div>
         <div className="section-column-right">
