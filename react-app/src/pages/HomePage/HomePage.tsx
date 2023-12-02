@@ -1,9 +1,12 @@
-import { Link } from "react-router-dom";
 import React from "react";
+
+import { useAuth } from "../../contexts/AuthContext";
 
 import "./HomePage.css";
 
 const HomePage: React.FC = () => {
+  const { restrictedNavigate } = useAuth();
+
   return (
     <div className="home-container">
       <div className="section">
@@ -17,9 +20,12 @@ const HomePage: React.FC = () => {
               Join or create groups with your loved ones and discover the fun of
               festive gifting. Allow the spirit of giving to bring you closer.
             </p>
-            <Link to="/list-groups" className="section-button">
+            <button
+              className="section-button"
+              onClick={() => restrictedNavigate("/list-groups")}
+            >
               <span className="section-button-text">See a Group Now</span>
-            </Link>
+            </button>
           </div>
         </div>
         <div className="section-column-right">
@@ -46,9 +52,12 @@ const HomePage: React.FC = () => {
               you create it. Develop your own group, invite friends and see the
               joy multiply. Unwrap happiness today.
             </p>
-            <Link to="/create-group" className="section-button">
+            <button
+              className="section-button"
+              onClick={() => restrictedNavigate("/create-group")}
+            >
               <span className="section-button-text">Create a Group Now</span>
-            </Link>
+            </button>
           </div>
         </div>
       </div>

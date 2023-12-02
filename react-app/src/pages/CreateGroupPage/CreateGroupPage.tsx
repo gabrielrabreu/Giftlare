@@ -1,14 +1,17 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import * as Yup from "yup";
 import React from "react";
 
 import { CreateGroupInterface } from "../../interfaces/CreateGroupInterface";
+import groupService from "../../services/GroupService";
 
 import "./CreateGroupPage.css";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Please enter a name"),
+  image: Yup.string().required("Please enter an image"),
 });
 
 const CreateGroupPage: React.FC = () => {
@@ -16,13 +19,16 @@ const CreateGroupPage: React.FC = () => {
 
   const initialValues: CreateGroupInterface = {
     name: "",
+    image: "",
   };
 
   const handleSubmit = async (values: CreateGroupInterface) => {
     try {
+      await groupService.create(values);
       navigate("/view-group/0");
     } catch (error) {
-      console.log(error);
+      let errorMessage = error instanceof Error ? error.message : error;
+      toast.error(errorMessage as React.ReactNode);
     }
   };
 
@@ -57,6 +63,22 @@ const CreateGroupPage: React.FC = () => {
                 <ErrorMessage
                   className="form-error"
                   name="name"
+                  component="div"
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor="image">
+                  Image:
+                </label>
+                <Field
+                  className="form-input"
+                  type="text"
+                  id="image"
+                  name="image"
+                />
+                <ErrorMessage
+                  className="form-error"
+                  name="image"
                   component="div"
                 />
               </div>

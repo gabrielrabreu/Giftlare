@@ -42,7 +42,7 @@ namespace Giftlare.WebApi.Scope.Middlewares
                 Instance = httpContext.Request.Path.Value,
                 TraceId = Activity.Current?.TraceId.ToString()
             };
-            await httpContext.Response.WriteAsync(JsonSerializer.Serialize(response));
+            await httpContext.Response.WriteAsync(response.Serialize());
         }
 
         private static async Task TreatExceptionAsync(HttpContext httpContext, Exception exception)

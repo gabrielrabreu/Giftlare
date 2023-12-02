@@ -17,7 +17,7 @@ namespace Giftlare.Exchange.Application.AppServices
 
         public void Create(ExchangeCreationDto creationDto, Guid adminId)
         {
-            var exchange = new ExchangeDomain(creationDto.Name, adminId);
+            var exchange = new ExchangeDomain(creationDto.Name, creationDto.Image, adminId);
 
             _repository.Add(exchange);
             _repository.CommitChanges();

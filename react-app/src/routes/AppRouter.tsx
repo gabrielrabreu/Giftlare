@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 import React from "react";
 
 import CreateGroupPage from "../pages/CreateGroupPage/CreateGroupPage";
@@ -7,6 +7,17 @@ import ViewGroupPage from "../pages/ViewGroupPage/ViewGroupPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import MainLayout from "../layouts/MainLayout/MainLayout";
 import HomePage from "../pages/HomePage/HomePage";
+import { useAuth } from "../contexts/AuthContext";
+
+const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <Navigate to="/" />;
+  }
+
+  return <>{children}</>;
+};
 
 const AppRouter = () => {
   return (
@@ -20,9 +31,30 @@ const AppRouter = () => {
         }
       >
         <Route index element={<HomePage />} />
-        <Route path="list-groups" element={<ListGroupPage />} />
-        <Route path="create-group" element={<CreateGroupPage />} />
-        <Route path="view-group/:groupId" element={<ViewGroupPage />} />
+        <Route
+          path="list-groups"
+          element={
+            <PrivateRoute>
+              <ListGroupPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="create-group"
+          element={
+            <PrivateRoute>
+              <CreateGroupPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="view-group/:groupId"
+          element={
+            <PrivateRoute>
+              <ViewGroupPage />
+            </PrivateRoute>
+          }
+        />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

@@ -31,6 +31,17 @@ namespace Giftlare.Exchange.Domain.Entities
             }
         }
 
+
+        private string _image;
+        public string Image
+        {
+            get => _image;
+            private set
+            {
+                _image = value;
+            }
+        }
+
         private ExchangeInvitationDomain _invitation;
         public ExchangeInvitationDomain Invitation
         {
@@ -46,20 +57,23 @@ namespace Giftlare.Exchange.Domain.Entities
         private readonly List<ExchangeMemberDomain> _members;
         public IReadOnlyCollection<ExchangeMemberDomain> Members => _members.AsReadOnly();
 
-        public ExchangeDomain(string name, Guid adminId)
+        public ExchangeDomain(string name, string image, Guid adminId)
         {
             Id = Guid.NewGuid();
             Invitation = new ExchangeInvitationDomain();
             _members = new();
 
             Name = name;
+            Image = image;
+
             AddMember(adminId, ExchangeMemberRoles.Admin);
         }
 
-        public ExchangeDomain(Guid id, string name, string invitationToken, List<ExchangeMemberDomain> members)
+        public ExchangeDomain(Guid id, string name, string image, string invitationToken, List<ExchangeMemberDomain> members)
         {
             Id = id;
             Name = name;
+            Image = image;
             Invitation = new ExchangeInvitationDomain(invitationToken);
             _members = members;
         }

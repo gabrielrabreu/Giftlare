@@ -32,6 +32,7 @@ namespace Giftlare.Exchange.Infra.Data.Queries
                         {
                             Id = exchange.Id,
                             Name = exchange.Name,
+                            Image = exchange.Image,
                             Members = exchange.Members.Select(m =>
                                 new ExchangeMemberDto()
                                 {

@@ -87,7 +87,11 @@ namespace Giftlare.Exchange.Infra.Data.Repositories
         protected override ExchangeDomain MapTo(ExchangeData dataEntity)
         {
             var members = dataEntity.Members.Select(m => new ExchangeMemberDomain(m.Id, m.ExchangeId, m.MemberId, m.Role));
-            return new ExchangeDomain(dataEntity.Id, dataEntity.Name, dataEntity.InviteToken, members.ToList());
+            return new ExchangeDomain(dataEntity.Id,
+                                      dataEntity.Name,
+                                      dataEntity.Image,
+                                      dataEntity.InviteToken,
+                                      members.ToList());
         }
 
         protected override ExchangeData MapTo(ExchangeDomain domainEntity)
@@ -96,6 +100,7 @@ namespace Giftlare.Exchange.Infra.Data.Repositories
             {
                 Id = domainEntity.Id,
                 Name = domainEntity.Name,
+                Image = domainEntity.Image,
                 InviteToken = domainEntity.Invitation.Token,
                 Members = domainEntity.Members.Select(m =>
                     new ExchangeMemberData

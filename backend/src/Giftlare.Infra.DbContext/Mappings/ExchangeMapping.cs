@@ -15,6 +15,8 @@ namespace Giftlare.Infra.DbContext.Mappings
             builder.Property(x => x.Name)
                 .IsRequired();
 
+            builder.Property(x => x.Image);
+
             builder.Property(x => x.InviteToken)
                 .IsRequired();
         }

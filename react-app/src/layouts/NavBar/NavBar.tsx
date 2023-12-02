@@ -1,9 +1,14 @@
-import { Link, useMatch } from "react-router-dom";
+import { useMatch, useNavigate } from "react-router-dom";
 import React from "react";
+
+import { useAuth } from "../../contexts/AuthContext";
 
 import "./NavBar.css";
 
 const NavBar: React.FC = () => {
+  const navigate = useNavigate();
+  const { restrictedNavigate } = useAuth();
+
   const isHomePage = useMatch("/");
 
   return (
@@ -13,16 +18,20 @@ const NavBar: React.FC = () => {
         <div className="nav-logo">Giftlare</div>
         <ul className="nav-links">
           <li className="nav-link">
-            <Link to="/">Home</Link>
+            <button onClick={() => navigate("/")}>Home</button>
           </li>
           <li className="nav-link">
-            <Link to="/list-groups">Groups</Link>
+            <button onClick={() => restrictedNavigate("/list-groups")}>
+              Groups
+            </button>
           </li>
           <li className="nav-link">
-            <Link to="/create-group">Create</Link>
+            <button onClick={() => restrictedNavigate("/create-group")}>
+              Create
+            </button>
           </li>
           <li className="nav-link">
-            <Link to="/contact">Contact</Link>
+            <button onClick={() => navigate("/contact")}>Contact</button>
           </li>
         </ul>
       </div>
