@@ -38,9 +38,11 @@ describe("ListGroupPage Component", () => {
     });
 
     // Assert
-    expect(screen.getByTestId("page-title")).toBeInTheDocument();
-    expect(screen.getByTestId("page-description")).toBeInTheDocument();
-    expect(screen.getByTestId("empty-group-list")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByTestId("page-title")).toBeInTheDocument();
+      expect(screen.getByTestId("page-description")).toBeInTheDocument();
+      expect(screen.getByTestId("empty-group-list")).toBeInTheDocument();
+    });
   });
 
   test("renders ListGroupPage correctly", async () => {

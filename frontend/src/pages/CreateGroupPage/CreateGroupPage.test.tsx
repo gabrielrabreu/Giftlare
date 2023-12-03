@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 import { act } from "react-dom/test-utils";
 import React from "react";
@@ -81,9 +81,7 @@ describe("CreateGroupPage Componente", () => {
     render(<CreateGroupPage />);
 
     // Act
-    await act(() => {
-      fireEvent.click(screen.getByTestId("cancel-button"));
-    });
+    fireEvent.click(screen.getByTestId("cancel-button"));
 
     // Assert
     expect(mockNavigate).toHaveBeenCalledWith("/list-groups");
