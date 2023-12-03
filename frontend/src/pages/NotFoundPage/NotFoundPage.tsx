@@ -1,20 +1,30 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React from "react";
 
 import "./NotFoundPage.css";
 
 const NotFoundPage: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="not-found-container">
       <div className="not-found-content">
-        <p className="error-code">ERROR 404</p>
-        <p className="error-message">Oops! Page not found.</p>
-        <p className="error-detail">
+        <p data-testid="error-code" className="error-code">
+          ERROR 404
+        </p>
+        <p data-testid="error-message" className="error-message">
+          Oops! Page not found.
+        </p>
+        <p data-testid="error-detail" className="error-detail">
           Looks like the page you are looking for doesn't exist.
         </p>
-        <Link to="/">
-          <button className="redirect-button">Back to HomePage</button>
-        </Link>
+        <button
+          data-testid="redirect-button"
+          className="redirect-button"
+          onClick={() => navigate("/")}
+        >
+          Back to HomePage
+        </button>
       </div>
     </div>
   );

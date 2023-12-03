@@ -26,6 +26,7 @@ const ListGroupPage: React.FC = () => {
         const options = await groupService.paged(parameters);
         setPagedList(options);
       } catch (error) {
+        console.log(error);
         let errorMessage = error instanceof Error ? error.message : error;
         toast.error(errorMessage as React.ReactNode);
       }
@@ -45,20 +46,26 @@ const ListGroupPage: React.FC = () => {
     <div className="page-container">
       <div className="page-content">
         <div className="page-header">
-          <p className="page-header-title">My Groups</p>
-          <p className="page-header-description">The page description</p>
+          <p data-testid="page-title" className="page-header-title">
+            My Groups
+          </p>
+          <p data-testid="page-description" className="page-header-description">
+            The page description
+          </p>
         </div>
         <div className="groups-list">
           {pagedList === null || pagedList.data.length === 0 ? (
-            <p>No groups available.</p>
+            <p data-testid="empty-group-list">No groups available.</p>
           ) : (
             pagedList.data.map((group) => (
               <button
+                data-testid={`group-item-${group.id}`}
                 key={group.id}
                 className="group-item"
                 onClick={() => restrictedNavigate(`/view-group/${group.id}`)}
               >
                 <img
+                  data-testid={`group-item-image-${group.id}`}
                   src={
                     group.image ||
                     "images/tatiana-byzova-nbe4qiyfwx8-unsplashjpg_1677495264_54382.jpg"
@@ -67,8 +74,12 @@ const ListGroupPage: React.FC = () => {
                   alt={`Group ${group.name}`}
                 />
                 <div className="group-info">
-                  <h3>{group.name}</h3>
-                  <p>{group.totalMembers} members</p>
+                  <h3 data-testid={`group-item-name-${group.id}`}>
+                    {group.name}
+                  </h3>
+                  <p data-testid={`group-item-total-members-${group.id}`}>
+                    {group.totalMembers} members
+                  </p>
                 </div>
               </button>
             ))
