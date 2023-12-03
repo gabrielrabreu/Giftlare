@@ -76,14 +76,17 @@ jobs:
         with:
           node-version: 21.2.0
 
-      - name: Install SonarScanner
-        run: |
-          npm install -g sonarqube-scanner
-
       - name: Install dependencies
-        run: |
-          npm install
-          npm run build
+        run: npm install
+
+      - name: Run tests and collect coverage
+        run: npm run test-coverage
+
+      - name: Build
+        run: npm run build
+
+      - name: Install SonarScanner
+        run: npm install -g sonarqube-scanner
 
       - name: Run SonarCloud analysis
         run: |
@@ -91,7 +94,8 @@ jobs:
             -Dsonar.projectKey=$SONAR_PROJECT_KEY \
             -Dsonar.organization=$SONAR_ORGANIZATION \
             -Dsonar.host.url=$SONAR_HOST_URL \
-            -Dsonar.login=$SONAR_TOKEN
+            -Dsonar.login=$SONAR_TOKEN \
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov-report/lcov.info
         env:
           SONAR_PROJECT_KEY: "${{ secrets.SONAR_PROJECT_KEY_FRONTEND }}"
           SONAR_ORGANIZATION: "${{ secrets.SONAR_ORGANIZATION }}"
