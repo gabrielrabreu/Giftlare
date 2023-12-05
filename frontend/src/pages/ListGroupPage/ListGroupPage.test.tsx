@@ -2,7 +2,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 
 import { act } from "react-dom/test-utils";
 
-import { mockGroupService } from "../../services/__mocks__/GroupService";
+import { mockGroupService } from "../../mocks/services/GroupService";
 import ListGroupPage from "./ListGroupPage";
 
 jest.mock("../../contexts/AuthContext", () => ({
