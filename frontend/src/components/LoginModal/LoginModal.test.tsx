@@ -82,15 +82,17 @@ describe("LoginModal", () => {
     });
 
     // Assert
+    expect(mockAccountService.login).toHaveBeenCalledTimes(1);
     expect(mockAccountService.login).toHaveBeenCalledWith({
       email: userEmail,
       password: userPassword,
     });
+    expect(mockLogin).toHaveBeenCalledTimes(1);
     expect(mockLogin).toHaveBeenCalledWith(
       mockLoginResponse.token,
       mockLoginResponse.user,
     );
-    expect(onClose).toHaveBeenCalled();
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   test("should toast error when service throw exception", async () => {
@@ -113,6 +115,7 @@ describe("LoginModal", () => {
 
     // Assert
     await waitFor(() => {
+      expect(require("react-toastify").toast.error).toHaveBeenCalledTimes(1);
       expect(require("react-toastify").toast.error).toHaveBeenCalledWith(
         "error",
       );
@@ -127,6 +130,6 @@ describe("LoginModal", () => {
     fireEvent.click(screen.getByTestId("cancel-button"));
 
     // Assert
-    expect(onClose).toHaveBeenCalledWith();
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 });

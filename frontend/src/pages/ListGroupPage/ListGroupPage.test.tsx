@@ -94,6 +94,7 @@ describe("ListGroupPage Component", () => {
 
     // Assert
     await waitFor(() => {
+      expect(require("react-toastify").toast.error).toHaveBeenCalledTimes(1);
       expect(require("react-toastify").toast.error).toHaveBeenCalledWith(
         "error",
       );
@@ -125,6 +126,7 @@ describe("ListGroupPage Component", () => {
     fireEvent.click(groupButton);
 
     // Assert
+    expect(mockRestrictedNavigate).toHaveBeenCalledTimes(1);
     expect(mockRestrictedNavigate).toHaveBeenCalledWith("/view-group/1");
   });
 
@@ -156,16 +158,23 @@ describe("ListGroupPage Component", () => {
       expect(screen.getByTestId("group-item-4")).toBeInTheDocument();
     });
 
-    const nextPageButton = screen.getByText("Next Page");
-
     await act(async () => {
-      fireEvent.click(nextPageButton);
+      fireEvent.click(screen.getByTestId("next-page"));
     });
 
     await waitFor(() => {
       expect(screen.getByTestId("group-item-5")).toBeInTheDocument();
     });
 
-    expect(mockRestrictedNavigate).not.toHaveBeenCalled();
+    await act(async () => {
+      fireEvent.click(screen.getByTestId("previus-page"));
+    });
+
+    await waitFor(() => {
+      expect(screen.getByTestId("group-item-1")).toBeInTheDocument();
+      expect(screen.getByTestId("group-item-2")).toBeInTheDocument();
+      expect(screen.getByTestId("group-item-3")).toBeInTheDocument();
+      expect(screen.getByTestId("group-item-4")).toBeInTheDocument();
+    });
   });
 });

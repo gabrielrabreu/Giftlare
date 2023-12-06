@@ -40,6 +40,7 @@ describe("NotFoundPage Componente", () => {
     fireEvent.click(redirectButton);
 
     // Assert
+    expect(mockNavigate).toHaveBeenCalledTimes(1);
     expect(mockNavigate).toHaveBeenCalledWith("/");
   });
 });

@@ -46,6 +46,7 @@ describe("HomePage Componente", () => {
     fireEvent.click(redirectButton);
 
     // Assert
+    expect(mockRestrictedNavigate).toHaveBeenCalledTimes(1);
     expect(mockRestrictedNavigate).toHaveBeenCalledWith("/list-groups");
   });
 
@@ -58,6 +59,7 @@ describe("HomePage Componente", () => {
     fireEvent.click(redirectButton);
 
     // Assert
+    expect(mockRestrictedNavigate).toHaveBeenCalledTimes(1);
     expect(mockRestrictedNavigate).toHaveBeenCalledWith("/create-group");
   });
 });

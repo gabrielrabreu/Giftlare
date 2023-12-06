@@ -85,6 +85,7 @@ const ListGroupPage: React.FC = () => {
         </div>
         <div className="pagination-controls">
           <button
+            data-testid="previus-page"
             className="previus-page"
             onClick={handlePreviousPage}
             disabled={page === 1}
@@ -93,6 +94,7 @@ const ListGroupPage: React.FC = () => {
           </button>
           <span className="page-number">Page {page}</span>
           <button
+            data-testid="next-page"
             className="next-page"
             onClick={handleNextPage}
             disabled={!pagedList || page === pagedList.totalPages}

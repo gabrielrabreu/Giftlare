@@ -69,10 +69,12 @@ describe("CreateGroupPage Componente", () => {
     });
 
     // Assert
+    expect(mockGroupService.create).toHaveBeenCalledTimes(1);
     expect(mockGroupService.create).toHaveBeenCalledWith({
       name: groupName,
       image: groupImage,
     });
+    expect(mockNavigate).toHaveBeenCalledTimes(1);
     expect(mockNavigate).toHaveBeenCalledWith("/view-group/0");
   });
 
@@ -96,6 +98,7 @@ describe("CreateGroupPage Componente", () => {
 
     // Assert
     await waitFor(() => {
+      expect(require("react-toastify").toast.error).toHaveBeenCalledTimes(1);
       expect(require("react-toastify").toast.error).toHaveBeenCalledWith(
         "error",
       );
@@ -110,6 +113,7 @@ describe("CreateGroupPage Componente", () => {
     fireEvent.click(screen.getByTestId("cancel-button"));
 
     // Assert
+    expect(mockNavigate).toHaveBeenCalledTimes(1);
     expect(mockNavigate).toHaveBeenCalledWith("/list-groups");
   });
 });
