@@ -138,7 +138,7 @@ describe("ListGroupPage Component", () => {
         { id: "2", name: "Group 2", totalMembers: 2, image: "image2.jpg" },
         { id: "3", name: "Group 3", totalMembers: 3, image: "image3.jpg" },
         { id: "4", name: "Group 4", totalMembers: 4, image: "image4.jpg" },
-        { id: "5", name: "Group 5", totalMembers: 5, image: "image5.jpg" },
+        { id: "5", name: "Group 5", totalMembers: 5, image: "" },
       ],
       totalPages: 2,
       totalItems: 5,
