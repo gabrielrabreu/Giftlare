@@ -1,9 +1,9 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 
 import { act } from "react-dom/test-utils";
 import React from "react";
 
-import groupService from "../../services/GroupService";
+import { mockGroupService } from "../../mocks/services/GroupService";
 import CreateGroupPage from "./CreateGroupPage";
 
 jest.mock("react-router-dom", () => ({
@@ -19,11 +19,12 @@ jest.mock("react-toastify", () => ({
 }));
 
 jest.mock("../../services/GroupService", () => ({
-  create: jest.fn(),
+  __esModule: true,
+  default: mockGroupService,
 }));
 
 describe("CreateGroupPage Componente", () => {
-  test("renders CreateGroupPage correctly", () => {
+  test("should render correctly", () => {
     // Render
     render(<CreateGroupPage />);
 
@@ -38,7 +39,7 @@ describe("CreateGroupPage Componente", () => {
     expect(screen.getByTestId("cancel-button")).toBeInTheDocument();
   });
 
-  test("handles form submission successfully", async () => {
+  test("should handle form submission successfully", async () => {
     // Arrange
     const mockNavigate = jest.fn();
     jest
@@ -63,14 +64,40 @@ describe("CreateGroupPage Componente", () => {
     });
 
     // Assert
-    expect(groupService.create).toHaveBeenCalledWith({
+    expect(mockGroupService.create).toHaveBeenCalledWith({
       name: groupName,
       image: groupImage,
     });
     expect(mockNavigate).toHaveBeenCalledWith("/view-group/0");
   });
 
-  test("handles form cancellation", async () => {
+  test("should toast error when service throw exception", async () => {
+    // Arrange
+    mockGroupService.create.mockRejectedValue(new Error("error"));
+
+    // Render
+    render(<CreateGroupPage />);
+
+    // Act
+    await act(async () => {
+      fireEvent.change(screen.getByTestId("name-input"), {
+        target: { value: "Test Group" },
+      });
+      fireEvent.change(screen.getByTestId("image-input"), {
+        target: { value: "Test Group Image" },
+      });
+      fireEvent.click(screen.getByTestId("submit-button"));
+    });
+
+    // Assert
+    await waitFor(() => {
+      expect(require("react-toastify").toast.error).toHaveBeenCalledWith(
+        "error",
+      );
+    });
+  });
+
+  test("should handle form cancellation", async () => {
     // Arrange
     const mockNavigate = jest.fn();
     jest

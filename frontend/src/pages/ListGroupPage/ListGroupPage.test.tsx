@@ -5,6 +5,13 @@ import { act } from "react-dom/test-utils";
 import { mockGroupService } from "../../mocks/services/GroupService";
 import ListGroupPage from "./ListGroupPage";
 
+jest.mock("react-toastify", () => ({
+  ...jest.requireActual("react-toastify"),
+  toast: {
+    error: jest.fn(),
+  },
+}));
+
 jest.mock("../../contexts/AuthContext", () => ({
   useAuth: jest.fn(),
 }));
@@ -23,7 +30,7 @@ describe("ListGroupPage Component", () => {
       .mockReturnValue({ restrictedNavigate: mockRestrictedNavigate });
   });
 
-  test("renders ListGroupPage correctly with empty data", async () => {
+  test("should render correctly with empty data", async () => {
     // Arrange
     mockGroupService.paged.mockResolvedValue({
       data: [],
@@ -45,7 +52,7 @@ describe("ListGroupPage Component", () => {
     });
   });
 
-  test("renders ListGroupPage correctly", async () => {
+  test("should render correctly with data", async () => {
     // Arrange
     mockGroupService.paged.mockResolvedValue({
       data: [
@@ -74,7 +81,24 @@ describe("ListGroupPage Component", () => {
     });
   });
 
-  test("navigates to view-group page on button click", async () => {
+  test("should toast error when service throw exception", async () => {
+    // Arrange
+    mockGroupService.paged.mockRejectedValue(new Error("error"));
+
+    // Render
+    await act(async () => {
+      render(<ListGroupPage />);
+    });
+
+    // Assert
+    await waitFor(() => {
+      expect(require("react-toastify").toast.error).toHaveBeenCalledWith(
+        "error",
+      );
+    });
+  });
+
+  test("should navigates to view-group page on button click", async () => {
     // Arrange
     mockGroupService.paged.mockResolvedValue({
       data: [
@@ -102,7 +126,7 @@ describe("ListGroupPage Component", () => {
     expect(mockRestrictedNavigate).toHaveBeenCalledWith("/view-group/1");
   });
 
-  test("handles pagination correctly", async () => {
+  test("should handle pagination correctly", async () => {
     // Arrange
     mockGroupService.paged.mockResolvedValue({
       data: [
