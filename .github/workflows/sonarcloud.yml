@@ -96,8 +96,8 @@ jobs:
             -Dsonar.host.url=$SONAR_HOST_URL \
             -Dsonar.login=$SONAR_TOKEN \
             -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info \
-            -Dsonar.coverage.exclusions=src/contexts/**/*,src/interface/**/*,src/layouts/**/*,src/mocks/**/*,src/routes/**/*,src/services/**/*,**/*.test.ts \
-            -Dsonar.exclusions=**/*.test.ts
+            -Dsonar.coverage.exclusions=src/contexts/**/*,src/interface/**/*,src/layouts/**/*,src/mocks/**/*,src/routes/**/*,src/services/**/* \
+            -Dsonar.exclusions=**/*.test.tsx
         env:
           SONAR_PROJECT_KEY: "${{ secrets.SONAR_PROJECT_KEY_FRONTEND }}"
           SONAR_ORGANIZATION: "${{ secrets.SONAR_ORGANIZATION }}"
