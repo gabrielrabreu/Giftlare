@@ -7,7 +7,17 @@ jest.mock("../../contexts/AuthContext", () => ({
   useAuth: () => jest.fn(),
 }));
 
+let mockRestrictedNavigate = jest.fn();
+
 describe("HomePage Componente", () => {
+  beforeEach(() => {
+    mockRestrictedNavigate = jest.fn();
+
+    jest
+      .spyOn(require("../../contexts/AuthContext"), "useAuth")
+      .mockReturnValue({ restrictedNavigate: mockRestrictedNavigate });
+  });
+
   test("renders HomePage correctly", () => {
     // Render
     render(<HomePage />);
@@ -28,12 +38,6 @@ describe("HomePage Componente", () => {
   });
 
   test("navigates to list group page on button click", () => {
-    // Arrange
-    const mockRestrictedNavigate = jest.fn();
-    jest
-      .spyOn(require("../../contexts/AuthContext"), "useAuth")
-      .mockReturnValue({ restrictedNavigate: mockRestrictedNavigate });
-
     // Render
     render(<HomePage />);
 
@@ -46,12 +50,6 @@ describe("HomePage Componente", () => {
   });
 
   test("navigates to create group page on button click", () => {
-    // Arrange
-    const mockRestrictedNavigate = jest.fn();
-    jest
-      .spyOn(require("../../contexts/AuthContext"), "useAuth")
-      .mockReturnValue({ restrictedNavigate: mockRestrictedNavigate });
-
     // Render
     render(<HomePage />);
 

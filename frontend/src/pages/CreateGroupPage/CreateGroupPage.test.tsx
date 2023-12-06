@@ -23,7 +23,17 @@ jest.mock("../../services/GroupService", () => ({
   default: mockGroupService,
 }));
 
+let mockNavigate = jest.fn();
+
 describe("CreateGroupPage Componente", () => {
+  beforeEach(() => {
+    mockNavigate = jest.fn();
+
+    jest
+      .spyOn(require("react-router-dom"), "useNavigate")
+      .mockReturnValue(mockNavigate);
+  });
+
   test("should render correctly", () => {
     // Render
     render(<CreateGroupPage />);
@@ -41,11 +51,6 @@ describe("CreateGroupPage Componente", () => {
 
   test("should handle form submission successfully", async () => {
     // Arrange
-    const mockNavigate = jest.fn();
-    jest
-      .spyOn(require("react-router-dom"), "useNavigate")
-      .mockReturnValue(mockNavigate);
-
     const groupName = "Test Group";
     const groupImage = "Test Group Image";
 
@@ -98,12 +103,6 @@ describe("CreateGroupPage Componente", () => {
   });
 
   test("should handle form cancellation", async () => {
-    // Arrange
-    const mockNavigate = jest.fn();
-    jest
-      .spyOn(require("react-router-dom"), "useNavigate")
-      .mockReturnValue(mockNavigate);
-
     // Render
     render(<CreateGroupPage />);
 

@@ -21,10 +21,12 @@ jest.mock("../../services/GroupService", () => ({
   default: mockGroupService,
 }));
 
-const mockRestrictedNavigate = jest.fn();
+let mockRestrictedNavigate = jest.fn();
 
 describe("ListGroupPage Component", () => {
   beforeEach(() => {
+    mockRestrictedNavigate = jest.fn();
+
     jest
       .spyOn(require("../../contexts/AuthContext"), "useAuth")
       .mockReturnValue({ restrictedNavigate: mockRestrictedNavigate });

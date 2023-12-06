@@ -9,7 +9,17 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => jest.fn(),
 }));
 
+let mockNavigate = jest.fn();
+
 describe("NotFoundPage Componente", () => {
+  beforeEach(() => {
+    mockNavigate = jest.fn();
+
+    jest
+      .spyOn(require("react-router-dom"), "useNavigate")
+      .mockReturnValue(mockNavigate);
+  });
+
   test("renders NotFoundPage correctly", () => {
     // Render
     render(<NotFoundPage />);
@@ -22,12 +32,6 @@ describe("NotFoundPage Componente", () => {
   });
 
   test("navigates to home page on button click", () => {
-    // Arrange
-    const mockNavigate = jest.fn();
-    jest
-      .spyOn(require("react-router-dom"), "useNavigate")
-      .mockReturnValue(mockNavigate);
-
     // Render
     render(<NotFoundPage />);
 

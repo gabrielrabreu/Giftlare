@@ -28,8 +28,7 @@ const LoginModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       login(response.token, response.user);
       onClose();
     } catch (error) {
-      let errorMessage = error instanceof Error ? error.message : error;
-      toast.error(errorMessage as React.ReactNode);
+      toast.error((error as Error).message as React.ReactNode);
     }
   };
 
@@ -41,8 +40,10 @@ const LoginModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     <div className="login-modal">
       <div className="login-content">
         <div className="page-header">
-          <p className="page-header-title">Welcome Back!</p>
-          <p className="page-header-description">
+          <p data-testid="page-title" className="page-header-title">
+            Welcome Back!
+          </p>
+          <p data-testid="page-description" className="page-header-description">
             Log in to access exclusive features, create groups, join
             celebrations, and share special moments.
           </p>
@@ -55,10 +56,15 @@ const LoginModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           {({ isValid, dirty }) => (
             <Form className="login-form">
               <div className="form-group">
-                <label className="form-label" htmlFor="email">
+                <label
+                  data-testid="email-label"
+                  className="form-label"
+                  htmlFor="email"
+                >
                   Email:
                 </label>
                 <Field
+                  data-testid="email-input"
                   className="form-input"
                   type="text"
                   id="email"
@@ -71,10 +77,15 @@ const LoginModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 />
               </div>
               <div className="form-group">
-                <label className="form-label" htmlFor="email">
+                <label
+                  data-testid="password-label"
+                  className="form-label"
+                  htmlFor="password"
+                >
                   Password:
                 </label>
                 <Field
+                  data-testid="password-input"
                   className="form-input"
                   type="password"
                   id="password"
@@ -88,6 +99,7 @@ const LoginModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               </div>
               <div className="form-buttons">
                 <button
+                  data-testid="submit-button"
                   className="form-submit"
                   type="submit"
                   disabled={!isValid || !dirty}
@@ -95,6 +107,7 @@ const LoginModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                   Login
                 </button>
                 <button
+                  data-testid="cancel-button"
                   className="form-cancel"
                   type="button"
                   onClick={handleCancel}
