@@ -155,7 +155,10 @@ describe("ListGroupPage Component", () => {
     });
 
     const nextPageButton = screen.getByText("Next Page");
-    fireEvent.click(nextPageButton);
+
+    await act(async () => {
+      fireEvent.click(nextPageButton);
+    });
 
     await waitFor(() => {
       expect(screen.getByTestId("group-item-5")).toBeInTheDocument();

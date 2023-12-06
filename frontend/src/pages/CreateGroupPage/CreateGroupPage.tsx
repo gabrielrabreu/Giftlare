@@ -25,8 +25,7 @@ const CreateGroupPage: React.FC = () => {
       await groupService.create(values);
       navigate("/view-group/0");
     } catch (error) {
-      let errorMessage = error instanceof Error ? error.message : error;
-      toast.error(errorMessage as React.ReactNode);
+      toast.error((error as Error).message as React.ReactNode);
     }
   };
 

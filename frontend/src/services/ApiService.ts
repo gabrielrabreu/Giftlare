@@ -59,16 +59,14 @@ class ApiService {
       (response) => response,
       (error) => {
         if (error.response) {
-          const status = error.response.status;
-          console.log(error.response.data);
+          const { status, data } = error.response;
+          console.log(data);
+
           if (status === 401) {
             ApiServiceConfig.logout();
-            throw new Error(error.response.data.detail || error.message);
-          } else if (status === 403) {
-            throw new Error(error.response.data.detail || error.message);
-          } else {
-            throw new Error(error.response.data.detail || error.message);
           }
+
+          throw new Error(data.detail || error.message);
         } else {
           throw new Error(error.message);
         }

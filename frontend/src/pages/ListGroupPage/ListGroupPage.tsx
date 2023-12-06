@@ -26,9 +26,7 @@ const ListGroupPage: React.FC = () => {
         const options = await groupService.paged(parameters);
         setPagedList(options);
       } catch (error) {
-        console.log(error);
-        let errorMessage = error instanceof Error ? error.message : error;
-        toast.error(errorMessage as React.ReactNode);
+        toast.error((error as Error).message as React.ReactNode);
       }
     };
     fetch();
