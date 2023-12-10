@@ -45,9 +45,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftlare.Exchange.Contracts
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftlare.Exchange.Infra.Data", "src\Giftlare.Exchange.Infra.Data\Giftlare.Exchange.Infra.Data.csproj", "{9A065DB0-D5CC-4618-BE1E-1750965EECA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftlare.Exchange.Application", "src\Giftlare.Exchange.Application\Giftlare.Exchange.Application.csproj", "{999F79A6-BFE3-461D-938F-4229B97C0DF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftlare.Exchange.Application", "src\Giftlare.Exchange.Application\Giftlare.Exchange.Application.csproj", "{999F79A6-BFE3-461D-938F-4229B97C0DF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftlare.Exchange.Infra.CrossCutting.IoC", "src\Giftlare.Exchange.Infra.CrossCutting.IoC\Giftlare.Exchange.Infra.CrossCutting.IoC.csproj", "{1ECD3E97-D8C5-4632-8B04-BEAFA5879152}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftlare.Exchange.Infra.CrossCutting.IoC", "src\Giftlare.Exchange.Infra.CrossCutting.IoC\Giftlare.Exchange.Infra.CrossCutting.IoC.csproj", "{1ECD3E97-D8C5-4632-8B04-BEAFA5879152}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftlare.Exchange.Domain.Tests", "tests\Giftlare.Exchange.Domain.Tests\Giftlare.Exchange.Domain.Tests.csproj", "{B39662B6-E4B0-4FC8-B5B4-41BAC08AAF89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftlare.TestHelpers", "tests\Giftlare.TestHelpers\Giftlare.TestHelpers.csproj", "{02A6585E-5F43-4610-B19E-9B4A805F1F30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +127,14 @@ Global
 		{1ECD3E97-D8C5-4632-8B04-BEAFA5879152}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1ECD3E97-D8C5-4632-8B04-BEAFA5879152}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1ECD3E97-D8C5-4632-8B04-BEAFA5879152}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B39662B6-E4B0-4FC8-B5B4-41BAC08AAF89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B39662B6-E4B0-4FC8-B5B4-41BAC08AAF89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B39662B6-E4B0-4FC8-B5B4-41BAC08AAF89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B39662B6-E4B0-4FC8-B5B4-41BAC08AAF89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02A6585E-5F43-4610-B19E-9B4A805F1F30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02A6585E-5F43-4610-B19E-9B4A805F1F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02A6585E-5F43-4610-B19E-9B4A805F1F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02A6585E-5F43-4610-B19E-9B4A805F1F30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -149,6 +161,8 @@ Global
 		{9A065DB0-D5CC-4618-BE1E-1750965EECA6} = {1531CAF7-DBC8-4C22-987C-44AF23D658A8}
 		{999F79A6-BFE3-461D-938F-4229B97C0DF5} = {1531CAF7-DBC8-4C22-987C-44AF23D658A8}
 		{1ECD3E97-D8C5-4632-8B04-BEAFA5879152} = {1531CAF7-DBC8-4C22-987C-44AF23D658A8}
+		{B39662B6-E4B0-4FC8-B5B4-41BAC08AAF89} = {FEE09933-1F20-438C-8910-6D166BF25EC6}
+		{02A6585E-5F43-4610-B19E-9B4A805F1F30} = {FEE09933-1F20-438C-8910-6D166BF25EC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C0C676-96BC-457A-9186-C206E247A65D}

@@ -48,7 +48,7 @@ namespace Giftlare.Exchange.Domain.Entities
                 name,
                 name,
                 claims,
-                expires: DateTime.Now.AddHours(_expiresInHours),
+                expires: DateTime.UtcNow.AddHours(_expiresInHours),
                 signingCredentials: credentials
             );
 

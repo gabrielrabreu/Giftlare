@@ -96,13 +96,13 @@ namespace Giftlare.Exchange.Domain.Entities
             AddMember(memberId, ExchangeMemberRoles.Member);
         }
 
-        private bool IsAnAdmin(Guid memberId)
+        public bool IsAnAdmin(Guid memberId)
         {
             var admin = _members.Single(x => x.Role == ExchangeMemberRoles.Admin);
             return admin.MemberId == memberId;
         }
 
-        private bool MemberExists(Guid memberId)
+        public bool MemberExists(Guid memberId)
         {
             return _members.Exists(m => m.MemberId == memberId);
         }
