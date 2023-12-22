@@ -9,6 +9,7 @@ import React, {
 } from "react";
 import { useNavigate } from "react-router-dom";
 
+import LoadingIndicator from "../components/LoadingIndicator/LoadingIndicator";
 import { UserInterface } from "../interfaces/UserInterface";
 
 interface AuthContextProps {
@@ -36,6 +37,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<UserInterface | null>(null);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [authDataLoaded, setAuthDataLoaded] = useState(false);
 
   const saveAuthData = useCallback(
     (newToken: string, newUser: UserInterface) => {
@@ -76,7 +78,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
     } else {
       localStorage.setItem("language", navigator.language);
     }
-  }, []);
+    setAuthDataLoaded(true);
+  }, [setAuthDataLoaded]);
 
   const openLoginModal = useCallback(() => {
     setIsLoginModalOpen(true);
@@ -109,6 +112,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
       openLoginModal,
       closeLoginModal,
       restrictedNavigate,
+      setAuthDataLoaded,
     };
   }, [
     token,
@@ -121,11 +125,16 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
     openLoginModal,
     closeLoginModal,
     restrictedNavigate,
+    setAuthDataLoaded,
   ]);
 
   useEffect(() => {
     loadAuthData();
   }, [loadAuthData]);
+
+  if (!authDataLoaded) {
+    return <LoadingIndicator />;
+  }
 
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>

@@ -6,6 +6,8 @@ namespace Giftlare.Exchange.Domain.Queries
 {
     public interface IExchangeQuery
     {
-        IPagedList<ExchangeDto> Paginate(IExchangePagedParameters parameters);
+        ExchangeDto? GetById(Guid memberId, Guid id);
+
+        IPagedList<ExchangeDto> Paginate(Guid memberId, IExchangePagedParameters parameters);
     }
 }

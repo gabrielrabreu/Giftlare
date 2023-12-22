@@ -68,10 +68,10 @@ const ListGroupPage: React.FC = () => {
                     group.image ||
                     "images/tatiana-byzova-nbe4qiyfwx8-unsplashjpg_1677495264_54382.jpg"
                   }
-                  className="group-image"
+                  className="group-item-image"
                   alt={`Group ${group.name}`}
                 />
-                <div className="group-info">
+                <div className="group-item-info">
                   <h3 data-testid={`group-item-name-${group.id}`}>
                     {group.name}
                   </h3>

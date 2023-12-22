@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Giftlare.Core.Enums\Giftlare.Core.Enums.csproj" />
+  </ItemGroup>
+
 </Project>

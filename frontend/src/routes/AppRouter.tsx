@@ -1,6 +1,7 @@
 import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 import React from "react";
 
+import AcceptInvitePage from "../pages/AcceptInvitePage/AcceptInvitePage";
 import CreateGroupPage from "../pages/CreateGroupPage/CreateGroupPage";
 import ListGroupPage from "../pages/ListGroupPage/ListGroupPage";
 import ViewGroupPage from "../pages/ViewGroupPage/ViewGroupPage";
@@ -13,6 +14,10 @@ const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
   const { user } = useAuth();
 
   if (!user) {
+    localStorage.setItem(
+      "redirectUrl",
+      window.location.pathname + window.location.search,
+    );
     return <Navigate to="/" />;
   }
 
@@ -52,6 +57,14 @@ const AppRouter = () => {
           element={
             <PrivateRoute>
               <ViewGroupPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="accept-invite"
+          element={
+            <PrivateRoute>
+              <AcceptInvitePage />
             </PrivateRoute>
           }
         />

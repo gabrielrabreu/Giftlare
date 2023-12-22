@@ -1,15 +1,14 @@
 ﻿using Giftlare.Infra.Resources;
 using System.ComponentModel.DataAnnotations;
-using System.Resources;
 
 namespace Giftlare.Core.Enums
 {
     public enum ExchangeMemberRoles
     {
         [Display(Description = "Administrator", ResourceType = typeof(GiftlareResource))]
-        Admin,
+        ADMIN = 0,
 
         [Display(Description = "Member", ResourceType = typeof(GiftlareResource))]
-        Member
+        MEMBER = 1
     }
 }

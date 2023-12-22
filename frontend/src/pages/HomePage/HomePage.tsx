@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useAuth } from "../../contexts/AuthContext";
 
@@ -6,6 +6,13 @@ import "./HomePage.css";
 
 const HomePage: React.FC = () => {
   const { restrictedNavigate } = useAuth();
+
+  useEffect(() => {
+    const redirectUrl = localStorage.getItem("redirectUrl");
+    if (redirectUrl) {
+      restrictedNavigate(redirectUrl);
+    }
+  }, [restrictedNavigate]);
 
   return (
     <div className="home-container">

@@ -15,9 +15,14 @@ namespace Giftlare.Exchange.Application.AppQueries
             _query = query;
         }
 
-        public IPagedList<ExchangeDto> Paginate(IExchangePagedParameters parameters)
+        public ExchangeDto? GetById(Guid memberId, Guid id)
         {
-            return _query.Paginate(parameters);
+            return _query.GetById(memberId, id);
+        }
+
+        public IPagedList<ExchangeDto> Paginate(Guid memberId, IExchangePagedParameters parameters)
+        {
+            return _query.Paginate(memberId, parameters);
         }
     }
 }

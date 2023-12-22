@@ -29,7 +29,7 @@ namespace Giftlare.Exchange.Domain.Tests.Entities
             exchangeDomain.Image.Should().Be(image);
             exchangeDomain.Invitation.Should().NotBeNull();
             exchangeDomain.Members.Should().HaveCount(1);
-            exchangeDomain.Members.ElementAt(0).Role.Should().Be(ExchangeMemberRoles.Admin);
+            exchangeDomain.Members.ElementAt(0).Role.Should().Be(ExchangeMemberRoles.ADMIN);
             exchangeDomain.Members.ElementAt(0).MemberId.Should().Be(adminId);
         }
 
@@ -81,7 +81,7 @@ namespace Giftlare.Exchange.Domain.Tests.Entities
             // Arrange
             var exchangeDomain = new ExchangeDomain("Test Exchange", "test_image.jpg", Guid.NewGuid());
             var memberId = Guid.NewGuid();
-            var role = ExchangeMemberRoles.Member;
+            var role = ExchangeMemberRoles.MEMBER;
 
             // Act
             exchangeDomain.AddMember(memberId, role);
@@ -133,7 +133,7 @@ namespace Giftlare.Exchange.Domain.Tests.Entities
 
             // Assert
             exchangeDomain.Members.Should().HaveCount(2);
-            exchangeDomain.Members.ElementAt(1).Role.Should().Be(ExchangeMemberRoles.Member);
+            exchangeDomain.Members.ElementAt(1).Role.Should().Be(ExchangeMemberRoles.MEMBER);
             exchangeDomain.Members.ElementAt(1).MemberId.Should().Be(memberId);
         }
 

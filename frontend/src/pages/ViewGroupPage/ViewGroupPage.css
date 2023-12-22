@@ -1,0 +1,32 @@
+.group-members-title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #555;
+}
+
+.group-members-list {
+  list-style: none;
+  padding: 0;
+}
+
+.invite-button {
+  background-color: #283618;
+  border: none;
+  display: inline-block;
+  padding: 1.25rem 3.125rem; 
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.invite-button:hover {
+  background-color: #20512e;
+}
+
+.invite-button-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+}

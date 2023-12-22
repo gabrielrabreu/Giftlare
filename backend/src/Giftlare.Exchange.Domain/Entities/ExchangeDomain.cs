@@ -66,7 +66,7 @@ namespace Giftlare.Exchange.Domain.Entities
             Name = name;
             Image = image;
 
-            AddMember(adminId, ExchangeMemberRoles.Admin);
+            AddMember(adminId, ExchangeMemberRoles.ADMIN);
         }
 
         public ExchangeDomain(Guid id, string name, string image, string invitationToken, List<ExchangeMemberDomain> members)
@@ -93,12 +93,12 @@ namespace Giftlare.Exchange.Domain.Entities
         {
             if (MemberExists(memberId)) throw new ExistingMemberException();
             Invitation.ValidateToken(Id, Name, invitationToken);
-            AddMember(memberId, ExchangeMemberRoles.Member);
+            AddMember(memberId, ExchangeMemberRoles.MEMBER);
         }
 
         public bool IsAnAdmin(Guid memberId)
         {
-            var admin = _members.Single(x => x.Role == ExchangeMemberRoles.Admin);
+            var admin = _members.Single(x => x.Role == ExchangeMemberRoles.ADMIN);
             return admin.MemberId == memberId;
         }
 

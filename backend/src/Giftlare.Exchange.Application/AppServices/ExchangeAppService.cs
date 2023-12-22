@@ -3,6 +3,8 @@ using Giftlare.Exchange.Application.AppServices.Interfaces;
 using Giftlare.Exchange.Contracts;
 using Giftlare.Exchange.Domain.Entities;
 using Giftlare.Exchange.Domain.Repositories;
+using System.Text;
+using System.Web;
 
 namespace Giftlare.Exchange.Application.AppServices
 {
@@ -30,7 +32,14 @@ namespace Giftlare.Exchange.Application.AppServices
             if (exchange == null)
                 throw new NotFoundException("Exchange");
 
-            return exchange.CreateInvitationToken(adminId);
+            var token = exchange.CreateInvitationToken(adminId);
+
+            var inviteParameters = new StringBuilder()
+                .Append("id=").Append(id)
+                .Append("&token=").Append(HttpUtility.UrlEncode(token))
+                .ToString();
+
+            return inviteParameters;
         }
 
         public void AcceptInvite(Guid id, Guid memberId, string token)

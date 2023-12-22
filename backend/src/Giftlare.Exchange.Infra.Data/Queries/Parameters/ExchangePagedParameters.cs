@@ -5,6 +5,5 @@ namespace Giftlare.Exchange.Infra.Data.Queries.Parameters
 {
     public class ExchangePagedParameters : PagedParameters, IExchangePagedParameters
     {
-        public Guid MemberId { get; set; }
     }
 }

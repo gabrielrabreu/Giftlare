@@ -5,16 +5,35 @@ import { PagedList } from "../interfaces/PagedList";
 import ApiService from "./ApiService";
 
 class GroupService extends ApiService {
+  async getById(id: string): Promise<GroupInterface> {
+    return await this.get<GroupInterface>(
+      `/v1/exchanges/${id}`,
+    );
+  }
+
   async paged(parameters: PagedParameters): Promise<PagedList<GroupInterface>> {
-    const response = await this.get<PagedList<GroupInterface>>(
+    return await this.get<PagedList<GroupInterface>>(
       "/v1/exchanges",
       { params: parameters },
     );
-    return response;
   }
 
-  async create(data: CreateGroupInterface): Promise<CreateGroupInterface> {
-    return await this.post("/v1/exchanges", data);
+  async create(data: CreateGroupInterface): Promise<void> {
+    return await this.post<void>("/v1/exchanges", data);
+  }
+
+  async invite(id: string): Promise<string> {
+    return await this.post<string>(
+      `/v1/exchanges/${id}:invite`,
+    );
+  }
+
+  async acceptInvite(id: string, inviteToken: string): Promise<void> {
+    return await this.post<void>(
+      `/v1/exchanges/${id}:accept-invite`,
+      null,
+      { params: { token: inviteToken } },
+    );
   }
 }
 

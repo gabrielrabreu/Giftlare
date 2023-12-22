@@ -26,8 +26,15 @@ namespace Giftlare.WebApi.Controllers.V1
         [HttpGet]
         public IActionResult Paginate([FromQuery] ExchangePagedParameters parameters)
         {
-            parameters.MemberId = _sessionService.User.Id;
-            return Ok(_appQuery.Paginate(parameters));
+            var memberId = _sessionService.User.Id;
+            return Ok(_appQuery.Paginate(memberId, parameters));
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(Guid id)
+        {
+            var memberId = _sessionService.User.Id;
+            return Ok(_appQuery.GetById(memberId, id));
         }
 
         [HttpPost]
@@ -40,9 +47,8 @@ namespace Giftlare.WebApi.Controllers.V1
         [HttpPost("{id}:invite")]
         public IActionResult Invite([FromRoute] Guid id)
         {
-            var token = _appService.Invite(id, _sessionService.User.Id);
-            var inviteUrl = $"{Request.Scheme}://{Request.Host}/exchanges/{id}:accept-invite?token={HttpUtility.UrlEncode(token)}";
-            return Ok(inviteUrl);
+            var inviteParameters = _appService.Invite(id, _sessionService.User.Id);
+            return Ok(inviteParameters);
         }
 
         [HttpPost("{id}:accept-invite")]

@@ -6,6 +6,7 @@ using Giftlare.Exchange.Contracts;
 using Giftlare.Exchange.Domain.Queries;
 using Giftlare.Exchange.Domain.Queries.Parameters;
 using Giftlare.Infra.DbEntities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Giftlare.Exchange.Infra.Data.Queries
 {
@@ -18,10 +19,34 @@ namespace Giftlare.Exchange.Infra.Data.Queries
             _context = context;
         }
 
-        public IPagedList<ExchangeDto> Paginate(IExchangePagedParameters parameters)
+        public ExchangeDto? GetById(Guid memberId, Guid id)
         {
             var source = _context.Query<ExchangeData>()
-                .Where(x => x.Members.Any(x => x.MemberId == parameters.MemberId));
+                .Include(x => x.Members).ThenInclude(x => x.Member)
+                .FirstOrDefault(x => x.Members.Any(x => x.MemberId == memberId) && x.Id == id);
+
+            if (source == null) return null;
+
+            return new ExchangeDto()
+            {
+                Id = source.Id,
+                Name = source.Name,
+                Image = source.Image,
+                Members = source.Members.Select(m =>
+                    new ExchangeMemberDto()
+                    {
+                        Name = m.Member.Name,
+                        Role = m.Role,
+                        RoleDescription = m.Role.GetEnumDisplayDescription()
+                    }).ToList()
+            };
+        }
+
+        public IPagedList<ExchangeDto> Paginate(Guid memberId, IExchangePagedParameters parameters)
+        {
+            var source = _context.Query<ExchangeData>()
+                .Include(x => x.Members).ThenInclude(x => x.Member)
+                .Where(x => x.Members.Any(x => x.MemberId == memberId));
 
             var totalItems = source.Count();
 
@@ -37,7 +62,8 @@ namespace Giftlare.Exchange.Infra.Data.Queries
                                 new ExchangeMemberDto()
                                 {
                                     Name = m.Member.Name,
-                                    Role = m.Role.GetEnumDisplayDescription()
+                                    Role = m.Role,
+                                    RoleDescription = m.Role.GetEnumDisplayDescription()
                                 }).ToList()
                         })
                         .Skip(parameters.Page * parameters.Size)

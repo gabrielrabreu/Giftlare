@@ -13,7 +13,7 @@ namespace Giftlare.Exchange.Domain.Tests.Entities
             // Arrange
             var exchangeId = Guid.NewGuid();
             var memberId = Guid.NewGuid();
-            var role = ExchangeMemberRoles.Admin;
+            var role = ExchangeMemberRoles.ADMIN;
 
             // Act
             var exchangeMemberDomain = new ExchangeMemberDomain(exchangeId, memberId, role);
@@ -32,7 +32,7 @@ namespace Giftlare.Exchange.Domain.Tests.Entities
             var id = Guid.NewGuid();
             var exchangeId = Guid.NewGuid();
             var memberId = Guid.NewGuid();
-            var role = ExchangeMemberRoles.Admin;
+            var role = ExchangeMemberRoles.ADMIN;
 
             // Act
             var exchangeMemberDomain = new ExchangeMemberDomain(id, exchangeId, memberId, role);
@@ -48,7 +48,7 @@ namespace Giftlare.Exchange.Domain.Tests.Entities
         public void Constructor_WhenIdIsEmpty_ShouldThrowFieldRequiredException()
         {
             // Act
-            Action act = () => new ExchangeMemberDomain(Guid.Empty, Guid.NewGuid(), Guid.NewGuid(), ExchangeMemberRoles.Member);
+            Action act = () => new ExchangeMemberDomain(Guid.Empty, Guid.NewGuid(), Guid.NewGuid(), ExchangeMemberRoles.MEMBER);
 
             // Assert
             act.Should().Throw<FieldRequiredException>().WithErrorField("Id");
@@ -58,7 +58,7 @@ namespace Giftlare.Exchange.Domain.Tests.Entities
         public void Constructor_WhenExchangeIdIsEmpty_ShouldThrowFieldRequiredException()
         {
             // Act
-            Action act = () => new ExchangeMemberDomain(Guid.Empty, Guid.NewGuid(), ExchangeMemberRoles.Member);
+            Action act = () => new ExchangeMemberDomain(Guid.Empty, Guid.NewGuid(), ExchangeMemberRoles.MEMBER);
 
             // Assert
             act.Should().Throw<FieldRequiredException>().WithErrorField("ExchangeId");
@@ -68,7 +68,7 @@ namespace Giftlare.Exchange.Domain.Tests.Entities
         public void Constructor_WhenMemberIdIsEmpty_ShouldThrowFieldRequiredException()
         {
             // Act
-            Action act = () => new ExchangeMemberDomain(Guid.NewGuid(), Guid.Empty, ExchangeMemberRoles.Member);
+            Action act = () => new ExchangeMemberDomain(Guid.NewGuid(), Guid.Empty, ExchangeMemberRoles.MEMBER);
 
             // Assert
             act.Should().Throw<FieldRequiredException>().WithErrorField("MemberId");

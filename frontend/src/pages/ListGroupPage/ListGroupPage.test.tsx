@@ -58,7 +58,13 @@ describe("ListGroupPage Component", () => {
     // Arrange
     mockGroupService.paged.mockResolvedValue({
       data: [
-        { id: "1", name: "Group 1", totalMembers: 5, image: "image1.jpg" },
+        {
+          id: "1",
+          name: "Group 1",
+          totalMembers: 5,
+          image: "image1.jpg",
+          members: [],
+        },
       ],
       totalPages: 1,
       totalItems: 1,
@@ -105,7 +111,13 @@ describe("ListGroupPage Component", () => {
     // Arrange
     mockGroupService.paged.mockResolvedValue({
       data: [
-        { id: "1", name: "Group 1", totalMembers: 5, image: "image1.jpg" },
+        {
+          id: "1",
+          name: "Group 1",
+          totalMembers: 5,
+          image: "image1.jpg",
+          members: [],
+        },
       ],
       totalPages: 1,
       totalItems: 1,
@@ -134,11 +146,35 @@ describe("ListGroupPage Component", () => {
     // Arrange
     mockGroupService.paged.mockResolvedValue({
       data: [
-        { id: "1", name: "Group 1", totalMembers: 1, image: "image1.jpg" },
-        { id: "2", name: "Group 2", totalMembers: 2, image: "image2.jpg" },
-        { id: "3", name: "Group 3", totalMembers: 3, image: "image3.jpg" },
-        { id: "4", name: "Group 4", totalMembers: 4, image: "image4.jpg" },
-        { id: "5", name: "Group 5", totalMembers: 5, image: "" },
+        {
+          id: "1",
+          name: "Group 1",
+          totalMembers: 1,
+          image: "image1.jpg",
+          members: [],
+        },
+        {
+          id: "2",
+          name: "Group 2",
+          totalMembers: 2,
+          image: "image2.jpg",
+          members: [],
+        },
+        {
+          id: "3",
+          name: "Group 3",
+          totalMembers: 3,
+          image: "image3.jpg",
+          members: [],
+        },
+        {
+          id: "4",
+          name: "Group 4",
+          totalMembers: 4,
+          image: "image4.jpg",
+          members: [],
+        },
+        { id: "5", name: "Group 5", totalMembers: 5, image: "", members: [] },
       ],
       totalPages: 2,
       totalItems: 5,
