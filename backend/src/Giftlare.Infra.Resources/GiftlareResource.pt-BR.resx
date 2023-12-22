@@ -117,13 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="InvalidAuthenticationMethod" xml:space="preserve">
-    <value>Método de Autenticação Inválido</value>
+  <data name="Administrator" xml:space="preserve">
+    <value>Administrador</value>
   </data>
-  <data name="OperationFailed" xml:space="preserve">
-    <value>Operação falhou</value>
+  <data name="AdminRequired" xml:space="preserve">
+    <value>Administração Necessária</value>
   </data>
-  <data name="SignInFailed" xml:space="preserve">
-    <value>E-mail ou senha inválidos. Verifique suas credenciais e tente novamente.</value>
+  <data name="AdminRequiredMessage" xml:space="preserve">
+    <value>Você precisa ter privilégios de administrador para realizar esta ação. Entre em contato com o administrador do grupo.</value>
+  </data>
+  <data name="AuthenticationFailed" xml:space="preserve">
+    <value>Falha Na Autenticação</value>
+  </data>
+  <data name="AuthenticationFailedMessage" xml:space="preserve">
+    <value>As credenciais fornecidas são inválidas. Verifique seu nome de usuário e senha e tente novamente.</value>
+  </data>
+  <data name="ExistingMember" xml:space="preserve">
+    <value>Membro Já Existente</value>
+  </data>
+  <data name="ExistingMemberMessage" xml:space="preserve">
+    <value>Você já é um membro deste grupo. Não é necessário solicitar novamente.</value>
+  </data>
+  <data name="ExpiredInvitation" xml:space="preserve">
+    <value>Convite Expirado</value>
+  </data>
+  <data name="ExpiredInvitationMessage" xml:space="preserve">
+    <value>O convite expirou. Gere um novo convite para continuar.</value>
+  </data>
+  <data name="FieldRequired" xml:space="preserve">
+    <value>Campo Obrigatório</value>
+  </data>
+  <data name="FieldRequiredMessage" xml:space="preserve">
+    <value>O campo '{0}' é obrigatório. Por favor, forneça um valor para esse campo.</value>
+  </data>
+  <data name="InvalidInvitation" xml:space="preserve">
+    <value>Convite Inválido</value>
+  </data>
+  <data name="InvalidInvitationMessage" xml:space="preserve">
+    <value>O convite fornecido é inválido. Por favor, verifique e tente novamente.</value>
+  </data>
+  <data name="Member" xml:space="preserve">
+    <value>Membro</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Entidade Não Encontrada</value>
+  </data>
+  <data name="NotFoundMessage" xml:space="preserve">
+    <value>O '{0}' que você forneceu não foi encontrado. Por favor, verifique o valor e tente novamente.</value>
   </data>
 </root>

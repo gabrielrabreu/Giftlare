@@ -1,0 +1,124 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("/public/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "Poppins", sans-serif !important;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fefae0;
+}
+
+.container-content {
+  flex-grow: 1;
+}
+
+.page-container {
+  padding: 4rem 2rem;
+}
+
+.page-content {
+  background-color: #fff8f8ff;
+  padding: 1.5rem 10.5rem;
+  padding-bottom: 5rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.page-header-description {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #555;
+}
+
+.form {
+  max-width: 30%;
+}
+
+.form-group {
+  margin-bottom: 0.9375rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.3125rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+
+.form-error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.3125rem;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-submit,
+.form-cancel {
+  padding: 0.625rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-submit {
+  background-color: #283618;
+  color: #fff;
+}
+
+.form-submit:hover {
+  background-color: #20512e;
+}
+
+.form-submit:disabled {
+  background-color: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.form-cancel {
+  background-color: #ccc;
+  color: #000;
+}
+
+.form-cancel:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}

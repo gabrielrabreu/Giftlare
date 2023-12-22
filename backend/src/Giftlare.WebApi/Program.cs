@@ -22,10 +22,9 @@ if (app.Environment.IsDevelopment())
     app.UseCustomSwagger();
 }
 
-app.MapControllers();
-
-app.UseCustomAuthentication();
 app.UseCustomCors();
+app.UseCustomAuthentication();
+app.MapControllers();
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 

@@ -1,6 +1,6 @@
 ﻿using Giftlare.Core.Domain.Extensions;
+using Giftlare.Core.Enums;
 using Giftlare.Infra.DbEntities;
-using Giftlare.Infra.Resources;
 using Giftlare.Security.Application.Services.Interfaces;
 using Giftlare.Security.Contracts;
 using Giftlare.Security.Domain.Exceptions;
@@ -26,7 +26,7 @@ namespace Giftlare.WebApi.Controllers.V1
             _tokenService = tokenService;
         }
 
-        [HttpPost("sign-up")]
+        [HttpPost("signup")]
         public async Task<IActionResult> SignUp(SignUpDto signUpDto)
         {
             var user = new ApplicationUser
@@ -34,7 +34,7 @@ namespace Giftlare.WebApi.Controllers.V1
                 Name = signUpDto.Name,
                 UserName = signUpDto.Email,
                 Email = signUpDto.Email,
-                Language = EnumExtensions.GetEnumFromDescription<Language>(signUpDto.Language)
+                Language = EnumExtensions.GetEnumFromDescription<Languages>(signUpDto.Language)
             };
 
             var result = await _userManager.CreateAsync(user, signUpDto.Password);
@@ -52,7 +52,7 @@ namespace Giftlare.WebApi.Controllers.V1
             var user = await _userManager.FindByNameAsync(signInDto.Email);
 
             if (!result.Succeeded || user == null)
-                throw new SignInFailedException();
+                throw new AuthenticationFailedException();
             return TokenResult(user);
         }
 

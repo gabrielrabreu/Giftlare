@@ -1,4 +1,5 @@
 root = true
+editor.defaultFormatter=esbenp.prettier-vscode,
 
 [*]
 indent_style = space

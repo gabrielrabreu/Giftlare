@@ -1,0 +1,21 @@
+.accept-invite-button {
+  background-color: #283618;
+  border: none;
+  display: inline-block;
+  padding: 1.25rem 3.125rem;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.accept-invite-button:hover {
+  background-color: #20512e;
+}
+
+.accept-invite-button-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+}

@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Giftlare.Exchange.Infra.CrossCutting.IoC\Giftlare.Exchange.Infra.CrossCutting.IoC.csproj" />
     <ProjectReference Include="..\Giftlare.Infra.DbMigrations\Giftlare.Infra.DbMigrations.csproj" />
     <ProjectReference Include="..\Giftlare.Security.Infra.CrossCutting.IoC\Giftlare.Security.Infra.CrossCutting.IoC.csproj" />
   </ItemGroup>

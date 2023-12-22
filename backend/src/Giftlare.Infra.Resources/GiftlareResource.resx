@@ -117,13 +117,61 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="InvalidAuthenticationMethod" xml:space="preserve">
-    <value>Invalid Authentication Method</value>
+  <data name="Administrator" xml:space="preserve">
+    <value>Administrator</value>
   </data>
-  <data name="OperationFailed" xml:space="preserve">
-    <value>Operation failed</value>
+  <data name="AdminRequired" xml:space="preserve">
+    <value>Admin Privileges Required</value>
   </data>
-  <data name="SignInFailed" xml:space="preserve">
-    <value>Invalid email or password. Please check your credentials and try again.</value>
+  <data name="AdminRequiredMessage" xml:space="preserve">
+    <value>You need to have administrator privileges to perform this action. Please contact the exchange administrator.</value>
+  </data>
+  <data name="AuthenticationFailed" xml:space="preserve">
+    <value>Authentication Failed</value>
+  </data>
+  <data name="AuthenticationFailedMessage" xml:space="preserve">
+    <value>The provided credentials are invalid. Please check your username and password and try again.</value>
+  </data>
+  <data name="ExistingMember" xml:space="preserve">
+    <value>Existing Member</value>
+  </data>
+  <data name="ExistingMemberMessage" xml:space="preserve">
+    <value>You are already a member of this group. There is no need to request membership again.</value>
+  </data>
+  <data name="ExpiredInvitation" xml:space="preserve">
+    <value>Expired Invitation</value>
+  </data>
+  <data name="ExpiredInvitationMessage" xml:space="preserve">
+    <value>The invitation has expired. Generate a new invitation to proceed.</value>
+  </data>
+  <data name="ExpiredToken" xml:space="preserve">
+    <value>Your session has expired. Please sign in again to continue.</value>
+  </data>
+  <data name="FieldRequired" xml:space="preserve">
+    <value>Required Field</value>
+  </data>
+  <data name="FieldRequiredMessage" xml:space="preserve">
+    <value>The '{0}' field is required. Please provide a value for this field.</value>
+  </data>
+  <data name="InvalidInvitation" xml:space="preserve">
+    <value>Invalid Invitation</value>
+  </data>
+  <data name="InvalidInvitationMessage" xml:space="preserve">
+    <value>The provided invitation is invalid. Please check and try again.</value>
+  </data>
+  <data name="InvalidToken" xml:space="preserve">
+    <value>The authentication token is invalid. Please sign in again.</value>
+  </data>
+  <data name="Member" xml:space="preserve">
+    <value>Member</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Entity Not Found</value>
+  </data>
+  <data name="NotFoundMessage" xml:space="preserve">
+    <value>The '{0}' that you informed was not found. Please check the value and try again.</value>
+  </data>
+  <data name="UnauthorizedAccess" xml:space="preserve">
+    <value>Unauthorized access. Please check your credentials or request access.</value>
   </data>
 </root>

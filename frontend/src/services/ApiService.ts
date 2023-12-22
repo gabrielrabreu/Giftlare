@@ -1,6 +1,8 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
-import { translate } from "../translate";
+export class ApiServiceConfig {
+  static logout: () => void;
+}
 
 class ApiService {
   protected api: AxiosInstance;
@@ -13,26 +15,28 @@ class ApiService {
     this.setupInterceptors();
   }
 
-  private async addLanguageToHeaders() {
+  private async addLanguageToHeaders(config: AxiosRequestConfig) {
     try {
       const language = localStorage.getItem("language");
       if (language) {
-        this.api.defaults.headers.common["Language"] = language;
-      } else {
-        delete this.api.defaults.headers.common["Language"];
+        config.headers = {
+          ...config.headers,
+          Language: language,
+        };
       }
     } catch (error) {
       console.error("Error setting language:", error);
     }
   }
 
-  private async addTokenToHeaders() {
+  private async addTokenToHeaders(config: AxiosRequestConfig) {
     try {
       const token = localStorage.getItem("token");
       if (token) {
-        this.api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      } else {
-        delete this.api.defaults.headers.common["Authorization"];
+        config.headers = {
+          ...config.headers,
+          Authorization: `Bearer ${token}`,
+        };
       }
     } catch (error) {
       console.error("Error setting token:", error);
@@ -42,8 +46,8 @@ class ApiService {
   private setupInterceptors() {
     this.api.interceptors.request.use(
       async (config) => {
-        await this.addLanguageToHeaders();
-        await this.addTokenToHeaders();
+        await this.addLanguageToHeaders(config);
+        await this.addTokenToHeaders(config);
         return config;
       },
       (error) => {
@@ -55,14 +59,14 @@ class ApiService {
       (response) => response,
       (error) => {
         if (error.response) {
-          const status = error.response.status;
+          const { status, data } = error.response;
+          console.log(data);
+
           if (status === 401) {
-            throw new Error(translate("common.errors.expiredToken"));
-          } else if (status === 403) {
-            throw new Error(translate("common.errors.unauthorizedAccess"));
-          } else {
-            throw new Error(error.response.data.detail || error.message);
+            ApiServiceConfig.logout();
           }
+
+          throw new Error(data.detail || error.message);
         } else {
           throw new Error(error.message);
         }
@@ -76,6 +80,14 @@ class ApiService {
     config?: AxiosRequestConfig,
   ): Promise<T> {
     const response: AxiosResponse<T> = await this.api.post(url, data, config);
+    return response.data;
+  }
+
+  public async get<T = any>(
+    url: string,
+    config?: AxiosRequestConfig,
+  ): Promise<T> {
+    const response: AxiosResponse<T> = await this.api.get(url, config);
     return response.data;
   }
 }
